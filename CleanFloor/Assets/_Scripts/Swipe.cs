@@ -6,17 +6,15 @@ public class Swipe : MonoBehaviour
 {
     private float swipeMovementTreshold = 100;
     private bool isDragging = false;
-    private bool tap, swipeLeft, swipeRight, swipeUp, swipeDown = false;
 
-    public bool SwipeLeft { get => swipeLeft; }
-    public bool Tap { get => tap; }
-    public bool SwipeRight { get => swipeRight; }
-    public bool SwipeUp { get => swipeUp; }
-    public bool SwipeDown { get => swipeDown; }
+    private bool tap = false;
+
     private Vector2 startTouch, swipeDelta;
 
     public Vector2 StartTouch { get => startTouch; }
     public Vector2 SwipeDelta { get => swipeDelta; }
+    private int rotateDirection = 0;
+    public int RotateDirection { get => rotateDirection; }
 
     private void Update()
     {
@@ -77,24 +75,24 @@ public class Swipe : MonoBehaviour
                 //left or right
                 if (x < 0)
                 {
-                    swipeLeft = true;
-                    swipeRight = false;
+                    rotateDirection = -1;
+
                 }
                 else
                 {
-                    swipeLeft = false;
-                    swipeRight = true;
-                }
 
+                    rotateDirection = 1;
+                }
+                return;
             }
-            else
-            {
-                //up or down
-                if (y < 0)
-                    swipeDown = true;
-                else
-                    swipeUp = true;
-            }
+            // else
+            // {
+            //     //up or down
+            //     if (y < 0)
+            //       //up
+            //     else
+            //    //down
+            // }
 
             Reset();
         }
@@ -104,6 +102,7 @@ public class Swipe : MonoBehaviour
     {
         startTouch = swipeDelta = Vector2.zero;
         isDragging = false;
+        rotateDirection = 0;
     }
 
 }

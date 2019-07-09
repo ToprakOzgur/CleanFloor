@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
-
-
 public class Rotator : MonoBehaviour
 {
+
+    [SerializeField] private int rotateSpeed = 200;
     public Swipe swipeController;
 
     void Update()
     {
-        transform.RotateAround(Vector3.up, 3 * Time.deltaTime);
+
+        transform.Rotate(Vector3.up, swipeController.RotateDirection * rotateSpeed * Time.deltaTime, Space.World);
+
     }
 }

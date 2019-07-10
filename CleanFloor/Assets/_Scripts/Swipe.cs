@@ -33,10 +33,6 @@ public class Swipe : MonoBehaviour
         MobileInput();
 #endif
 
-
-
-        CalculateDistance();
-
         //Did we cross the treschold distance
 
         CheckMovementTouchThreshold();
@@ -80,45 +76,50 @@ public class Swipe : MonoBehaviour
         }
     }
 
-    private void CalculateDistance()
-    {
-        swipeDelta = Vector2.zero;
-        if (isDragging)
-        {
-            if (Input.touchCount > 0)
-                swipeDelta = Input.touches[0].position - startTouch;
-            else if (Input.GetMouseButton(0))
-                swipeDelta = (Vector2)Input.mousePosition - startTouch;
-        }
-    }
 
     private void MobileInput()
     {
-        if (Input.touches.Length > 0)
+        swipeDelta = Vector2.zero;
+        if (Input.touchCount > 0)
         {
-            if (Input.touches[0].phase == TouchPhase.Began)
+            Touch touch = Input.GetTouch(0);
+            switch (touch.phase)
             {
-                tap = true;
-                isDragging = true;
-                startTouch = Input.touches[0].position;
-            }
-            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-            {
+                //When a touch has first been detected, change the message and record the starting position
+                case TouchPhase.Began:
+                    tap = true;
+                    isDragging = true;
+                    startTouch = Input.touches[0].position;
+                    break;
 
-                isDragging = false;
-                Reset();
+                //Determine if the touch is a moving touch
+                case TouchPhase.Moved:
+
+                    swipeDelta = Input.GetTouch(0).deltaPosition;
+                    break;
+
+                case TouchPhase.Ended:
+
+                    isDragging = false;
+                    Reset();
+                    break;
             }
+
         }
+
+
     }
 
     private void StandAloneInput()
     {
+        swipeDelta = Vector2.zero;
         if (Input.GetMouseButtonDown(0))
         {
             tap = true;
             isDragging = true;
             startTouch = Input.mousePosition;
         }
+
         else if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;

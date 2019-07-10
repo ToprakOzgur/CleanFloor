@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Swipe : MonoBehaviour
 {
-    private float swipeMovementTreshold = 100;
+    private float swipeMovementTreshold = 10;
     private bool isDragging = false;
 
     private bool tap = false;
@@ -43,15 +43,9 @@ public class Swipe : MonoBehaviour
             {
                 //left or right
                 if (x < 0)
-                {
                     rotateDirection = -1;
-
-                }
                 else
-                {
-
                     rotateDirection = 1;
-                }
                 return;
             }
             // else
@@ -63,7 +57,7 @@ public class Swipe : MonoBehaviour
             //    //down
             // }
 
-            Reset();
+            // Reset();
         }
     }
 
@@ -91,6 +85,7 @@ public class Swipe : MonoBehaviour
             }
             else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
             {
+
                 isDragging = false;
                 Reset();
             }

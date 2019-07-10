@@ -1659,7 +1659,7 @@ PrefabInstance:
     - target: {fileID: 6253262593324616062, guid: 1bdc4d08bfa9249b197c4a370ef7c2a7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 6253262593324616062, guid: 1bdc4d08bfa9249b197c4a370ef7c2a7,
         type: 3}
@@ -1711,5 +1711,20 @@ PrefabInstance:
       propertyPath: swipeController
       value: 
       objectReference: {fileID: 946968344}
+    - target: {fileID: 3886776182330269527, guid: 1bdc4d08bfa9249b197c4a370ef7c2a7,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253262593324616060, guid: 1bdc4d08bfa9249b197c4a370ef7c2a7,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6253262593324616060, guid: 1bdc4d08bfa9249b197c4a370ef7c2a7,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bdc4d08bfa9249b197c4a370ef7c2a7, type: 3}

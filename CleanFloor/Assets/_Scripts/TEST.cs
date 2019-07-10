@@ -15,4 +15,9 @@ public class TEST : MonoBehaviour
 
         SceneManager.LoadScene("Game");
     }
+
+    public void drag()
+    {
+        Debug.Log("Darg");
+    }
 }

@@ -19,9 +19,21 @@ public class Swipe : MonoBehaviour
     private void Update()
     {
         tap = false;
-        StandAloneInput();
 
+#if UNITY_EDITOR
+        StandAloneInput();
+#endif
+
+#if UNITY_IOS
+     MobileInput();
+#endif
+
+
+#if UNITY_ANDROID
         MobileInput();
+#endif
+
+
 
         CalculateDistance();
 
@@ -43,9 +55,16 @@ public class Swipe : MonoBehaviour
             {
                 //left or right
                 if (x < 0)
+                {
+                    Debug.Log("LEFT");
                     rotateDirection = -1;
+                }
+
                 else
+                {
+                    Debug.Log("RIGHT");
                     rotateDirection = 1;
+                }
                 return;
             }
             // else

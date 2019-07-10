@@ -18,52 +18,21 @@ public class Swipe : MonoBehaviour
 
     private void Update()
     {
-        // tap = swipeLeft = swipeRight = swipeDown = swipeUp = false;
+        tap = false;
+        StandAloneInput();
 
-        #region Standalone Inputs 
-        if (Input.GetMouseButtonDown(0))
-        {
-            tap = true;
-            isDragging = true;
-            startTouch = Input.mousePosition;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            isDragging = false;
-            Reset();
-        }
-        #endregion
+        MobileInput();
 
-        #region Mobile Inputs
-
-        if (Input.touches.Length > 0)
-        {
-            if (Input.touches[0].phase == TouchPhase.Began)
-            {
-                tap = true;
-                isDragging = true;
-                startTouch = Input.touches[0].position;
-            }
-            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
-            {
-                isDragging = false;
-                Reset();
-            }
-        }
-        #endregion
-        //Calculate the distance
-
-        swipeDelta = Vector2.zero;
-        if (isDragging)
-        {
-            if (Input.touchCount > 0)
-                swipeDelta = Input.touches[0].position - startTouch;
-            else if (Input.GetMouseButton(0))
-                swipeDelta = (Vector2)Input.mousePosition - startTouch;
-        }
+        CalculateDistance();
 
         //Did we cross the treschold distance
 
+        CheckMovementTouchThreshold();
+
+    }
+
+    private void CheckMovementTouchThreshold()
+    {
         if (swipeDelta.magnitude > swipeMovementTreshold)
         {
             //what direction?
@@ -96,8 +65,53 @@ public class Swipe : MonoBehaviour
 
             Reset();
         }
-
     }
+
+    private void CalculateDistance()
+    {
+        swipeDelta = Vector2.zero;
+        if (isDragging)
+        {
+            if (Input.touchCount > 0)
+                swipeDelta = Input.touches[0].position - startTouch;
+            else if (Input.GetMouseButton(0))
+                swipeDelta = (Vector2)Input.mousePosition - startTouch;
+        }
+    }
+
+    private void MobileInput()
+    {
+        if (Input.touches.Length > 0)
+        {
+            if (Input.touches[0].phase == TouchPhase.Began)
+            {
+                tap = true;
+                isDragging = true;
+                startTouch = Input.touches[0].position;
+            }
+            else if (Input.touches[0].phase == TouchPhase.Ended || Input.touches[0].phase == TouchPhase.Canceled)
+            {
+                isDragging = false;
+                Reset();
+            }
+        }
+    }
+
+    private void StandAloneInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            tap = true;
+            isDragging = true;
+            startTouch = Input.mousePosition;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+            Reset();
+        }
+    }
+
     private void Reset()
     {
         startTouch = swipeDelta = Vector2.zero;

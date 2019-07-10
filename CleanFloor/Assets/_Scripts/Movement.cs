@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     {
 
         //transform.position += transform.up * Time.deltaTime * moveSpeed;
-        myRigidbody.position += transform.up * Time.deltaTime * moveSpeed;
+        myRigidbody.position += -transform.forward * Time.deltaTime * moveSpeed;
+
     }
 }

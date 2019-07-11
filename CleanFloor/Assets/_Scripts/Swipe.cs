@@ -16,6 +16,10 @@ public class Swipe : MonoBehaviour
     private int rotateDirection = 0;
     public int RotateDirection { get => rotateDirection; }
 
+    private int upAndDownSwipe = 0;
+    public int UpAndDownSwipe { get => upAndDownSwipe; }
+
+
     private void Update()
     {
         tap = false;
@@ -70,16 +74,16 @@ public class Swipe : MonoBehaviour
                 }
                 return;
             }
-            // else
-            // {
-            //     //up or down
-            //     if (y < 0)
-            //       //up
-            //     else
-            //    //down
-            // }
+            else
+            {
+                //up or down
+                if (y < 0)
+                    upAndDownSwipe = -1;
+                else
+                    upAndDownSwipe = 1;
+            }
 
-            // Reset();
+
         }
     }
 
@@ -144,6 +148,7 @@ public class Swipe : MonoBehaviour
         startTouch = swipeDelta = Vector2.zero;
         isDragging = false;
         rotateDirection = 0;
+        upAndDownSwipe = 0;
     }
 
 }

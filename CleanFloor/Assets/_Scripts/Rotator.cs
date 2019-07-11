@@ -34,6 +34,7 @@ public class Rotator : MonoBehaviour
         if (swipeController.RotateDirection == 0)
             return;
 
+
         transform.Rotate(Vector3.up, swipeController.RotateDirection * rotateSpeed * Time.deltaTime, Space.World);
 
     }

@@ -1827,7 +1827,7 @@ PrefabInstance:
     - target: {fileID: 3886776182330269527, guid: 1bdc4d08bfa9249b197c4a370ef7c2a7,
         type: 3}
       propertyPath: rotateSpeed
-      value: 250
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 6253262593324616060, guid: 1bdc4d08bfa9249b197c4a370ef7c2a7,
         type: 3}
@@ -1842,7 +1842,7 @@ PrefabInstance:
     - target: {fileID: 6253262593324616061, guid: 1bdc4d08bfa9249b197c4a370ef7c2a7,
         type: 3}
       propertyPath: moveSpeed
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bdc4d08bfa9249b197c4a370ef7c2a7, type: 3}

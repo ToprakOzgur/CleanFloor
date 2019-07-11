@@ -16,10 +16,11 @@ public class CameraFollow : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector3 desiredPosition = new Vector3(target.position.x + offset.x, transform.position.y, transform.position.z);
-        //Vector3 desiredPosition = target.position + offset;
-        float clambepDesiredPosX = Mathf.Clamp(desiredPosition.x, -30, 26);
-        var clambepDesiredPos = new Vector3(clambepDesiredPosX, desiredPosition.y, desiredPosition.z);
+        // Vector3 desiredPosition = new Vector3(target.position.x + offset.x, transform.position.y, transform.position.z);
+        Vector3 desiredPosition = target.position + offset;
+        float clambepDesiredPosX = Mathf.Clamp(desiredPosition.x, -30.0f, 26.0f);
+        float clambepDesiredPosZ = Mathf.Clamp(desiredPosition.z, -9.5f, 13.0f);
+        var clambepDesiredPos = new Vector3(clambepDesiredPosX, desiredPosition.y, clambepDesiredPosZ);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, clambepDesiredPos, smoothSpeed);
         transform.position = smoothedPosition;
 

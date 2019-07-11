@@ -6,7 +6,8 @@ public class Rotator : MonoBehaviour
 
     void FixedUpdate()
     {
-        Debug.Log(transform.forward.x);
+
+        //......up/down swipe
         if (swipeController.UpAndDownSwipe != 0)
         {
             if (Mathf.Abs(transform.forward.x) < 0.05f)
@@ -29,6 +30,7 @@ public class Rotator : MonoBehaviour
             return;
         }
 
+        //......right/left swipe
         if (swipeController.RotateDirection == 0)
             return;
 

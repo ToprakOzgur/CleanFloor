@@ -22,6 +22,7 @@ public class Swipe : MonoBehaviour
 
 #if UNITY_EDITOR
         StandAloneInput();
+
 #endif
 
 #if UNITY_IOS
@@ -31,6 +32,10 @@ public class Swipe : MonoBehaviour
 
 #if UNITY_ANDROID
         MobileInput();
+#endif
+
+#if UNITY_EDITOR
+        CalculateDistance();
 #endif
 
         //Did we cross the treschold distance
@@ -43,22 +48,24 @@ public class Swipe : MonoBehaviour
     {
         if (swipeDelta.magnitude > swipeMovementTreshold)
         {
+
             //what direction?
             float x = swipeDelta.x;
             float y = swipeDelta.y;
+
 
             if (Mathf.Abs(x) > Mathf.Abs(y))
             {
                 //left or right
                 if (x < 0)
                 {
-                    Debug.Log("LEFT");
+
                     rotateDirection = -1;
                 }
 
                 else
                 {
-                    Debug.Log("RIGHT");
+
                     rotateDirection = 1;
                 }
                 return;
@@ -85,21 +92,17 @@ public class Swipe : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             switch (touch.phase)
             {
-                //When a touch has first been detected, change the message and record the starting position
                 case TouchPhase.Began:
                     tap = true;
                     isDragging = true;
                     startTouch = Input.touches[0].position;
                     break;
 
-                //Determine if the touch is a moving touch
                 case TouchPhase.Moved:
-
                     swipeDelta = Input.GetTouch(0).deltaPosition;
                     break;
 
                 case TouchPhase.Ended:
-
                     isDragging = false;
                     Reset();
                     break;
@@ -110,20 +113,29 @@ public class Swipe : MonoBehaviour
 
     }
 
+    //this is for editor testing
     private void StandAloneInput()
     {
-        swipeDelta = Vector2.zero;
         if (Input.GetMouseButtonDown(0))
         {
             tap = true;
             isDragging = true;
             startTouch = Input.mousePosition;
         }
-
         else if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
             Reset();
+        }
+
+
+    }
+    private void CalculateDistance()
+    {
+        swipeDelta = Vector2.zero;
+        if (isDragging && Input.GetMouseButton(0))
+        {
+            swipeDelta = (Vector2)Input.mousePosition - startTouch;
         }
     }
 

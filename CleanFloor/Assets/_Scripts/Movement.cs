@@ -2,33 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Movement : MonoBehaviour
 {
-    [SerializeField] protected float moveSpeed = 5f;
-
-    private Vector3 lastMoveDirection = Vector3.zero;
     private Rigidbody myRigidbody;
+    public int Speed = 22;
+
+    private Vector3 forwardVector = Vector3.zero;
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
     {
-
-        myRigidbody.velocity += lastMoveDirection * moveSpeed * Time.deltaTime;
-        myRigidbody.velocity = Vector3.ClampMagnitude(myRigidbody.velocity, 8);
+        transform.position += forwardVector * Time.deltaTime * Speed;
 
     }
 
-    public void Move(Vector3 direction)
+    public void ChangeDirection(BotDirection botDirection)
     {
-        Debug.Log(direction);
-
-        lastMoveDirection = new Vector3(direction.x, 0, direction.y);
-
-
-
+        switch (botDirection)
+        {
+            case BotDirection.Down:
+                Debug.Log("Down");
+                forwardVector = -Vector3.forward;
+                break;
+            case BotDirection.Up:
+                forwardVector = Vector3.forward;
+                Debug.Log("Up");
+                break;
+            case BotDirection.Left:
+                forwardVector = Vector3.left;
+                Debug.Log("Lef");
+                break;
+            case BotDirection.Right:
+                forwardVector = Vector3.right;
+                Debug.Log("Right");
+                break;
+            case BotDirection.Stop:
+                Debug.Log("Stop");
+                break;
+        }
 
     }
+
 
 }

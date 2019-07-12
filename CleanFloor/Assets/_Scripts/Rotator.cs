@@ -2,40 +2,40 @@
 public class Rotator : MonoBehaviour
 {
     //     [SerializeField] private int rotateSpeed = 200;
-    //     public MovementController swipeController;
-    //     private float smoothSpeed = 0.125f;
-    // void FixedUpdate()
-    // {
 
-    //     //......up/down swipe
-    //     if (swipeController.UpAndDownSwipe != 0)
+    //     private float smoothSpeed = 0.125f;
+    //     void FixedUpdate()
     //     {
-    //         if (Mathf.Abs(transform.forward.x) < 0.05f)
+
+    //         //......up/down swipe
+    //         if (swipeController.UpAndDownSwipe != 0)
+    //         {
+    //             if (Mathf.Abs(transform.forward.x) < 0.05f)
+    //                 return;
+
+
+    //             int updown = 0;
+    //             if (transform.forward.x < 0)
+    //             {
+    //                 updown = -swipeController.UpAndDownSwipe;
+    //             }
+
+    //             else if (transform.forward.x > 0)
+    //             {
+    //                 updown = swipeController.UpAndDownSwipe;
+    //             }
+
+
+    //             transform.Rotate(Vector3.up, updown * rotateSpeed * Time.deltaTime, Space.World);
+    //             return;
+    //         }
+
+
+    //         if (swipeController.RotateDirection == 0)
     //             return;
 
 
-    //         int updown = 0;
-    //         if (transform.forward.x < 0)
-    //         {
-    //             updown = -swipeController.UpAndDownSwipe;
-    //         }
-
-    //         else if (transform.forward.x > 0)
-    //         {
-    //             updown = swipeController.UpAndDownSwipe;
-    //         }
-
-
-    //         transform.Rotate(Vector3.up, updown * rotateSpeed * Time.deltaTime, Space.World);
-    //         return;
-    //     }
-
-
-    //     if (swipeController.RotateDirection == 0)
-    //         return;
-
-
-    //    transform.Rotate(Vector3.up, swipeController.RotateDirection * rotateSpeed * Time.deltaTime, Space.World);
+    //         transform.Rotate(Vector3.up, swipeController.RotateDirection * rotateSpeed * Time.deltaTime, Space.World);
 
     // }
 }

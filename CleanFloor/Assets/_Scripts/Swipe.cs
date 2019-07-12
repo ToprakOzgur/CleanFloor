@@ -3,11 +3,25 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
+
+public enum BotDirection
+{
+    Stop = 0,
+    Left = 1,
+    Right = 2,
+    Up = 3,
+    Down = 4
+
+}
 public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
 
     public Movement movement;
     private Vector2 lastPosition = Vector2.zero;
+
+    [HideInInspector] public BotDirection currentBotDirection = BotDirection.Stop;
+
+    BotDirection LastBotDirection = BotDirection.Stop;
 
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -26,11 +40,37 @@ public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
     public void OnDrag(PointerEventData eventData)
     {
         Vector2 direction = eventData.position - lastPosition;
-        if (direction.magnitude < 2)
-            return;
         lastPosition = eventData.position;
 
-        movement.Move(direction.normalized);
+        if (direction.magnitude < 10)
+            return;
+
+
+        if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))
+        {
+            if (direction.x < 0)
+            {
+                currentBotDirection = BotDirection.Left;
+            }
+            else if (direction.x > 0)
+            {
+                currentBotDirection = BotDirection.Right;
+            }
+        }
+        else
+        {
+            if (direction.y < 0)
+            {
+                currentBotDirection = BotDirection.Down;
+            }
+            else if (direction.y > 0)
+            {
+                currentBotDirection = BotDirection.Up;
+            }
+        }
+
+        movement.ChangeDirection(currentBotDirection);
+
 
     }
 }

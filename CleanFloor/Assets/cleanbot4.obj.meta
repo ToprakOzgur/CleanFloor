@@ -1,19 +1,36 @@
 fileFormatVersion: 2
-guid: 4d20de7a9470347939d59781a5cca39b
+guid: 90dfc29561026d5459a029dd3d28a64c
 ModelImporter:
   serializedVersion: 25
-  internalIDToNameTable: []
-  externalObjects:
+  internalIDToNameTable:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Collider
-    second: {fileID: 2100000, guid: be7dc4fb056a49d4aab10527e78b98a4, type: 2}
+      1: 100000
+    second: //RootNode
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Roomba_BodyMat
-    second: {fileID: 2100000, guid: be7dc4fb056a49d4aab10527e78b98a4, type: 2}
+      1: 100002
+    second: Roomba_Body
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Roomba_Body
+  - first:
+      21: 2100000
+    second: Cleanbot_Texture_4
+  - first:
+      21: 2100002
+    second: Roomba_BodyMat
+  - first:
+      23: 2300000
+    second: Roomba_Body
+  - first:
+      33: 3300000
+    second: Roomba_Body
+  - first:
+      43: 4300000
+    second: Roomba_Body
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
@@ -50,8 +67,8 @@ ModelImporter:
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -70,9 +87,9 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
-    tangentImportMode: 3
-    normalCalculationMode: 4
+    normalImportMode: 1
+    tangentImportMode: 4
+    normalCalculationMode: 1
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0

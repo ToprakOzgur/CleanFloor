@@ -6,21 +6,29 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] protected float moveSpeed = 5f;
 
+    private Vector3 lastMoveDirection = Vector3.zero;
     private Rigidbody myRigidbody;
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
-
     }
     private void FixedUpdate()
     {
-        Move();
+
+        myRigidbody.velocity += lastMoveDirection * moveSpeed * Time.deltaTime;
+        myRigidbody.velocity = Vector3.ClampMagnitude(myRigidbody.velocity, 8);
+
     }
-    public void Move()
+
+    public void Move(Vector3 direction)
     {
+        Debug.Log(direction);
 
-        //transform.position += transform.up * Time.deltaTime * moveSpeed;
-        myRigidbody.position += -transform.forward * Time.deltaTime * moveSpeed;
+        lastMoveDirection = new Vector3(direction.x, 0, direction.y);
+
+
+
 
     }
+
 }

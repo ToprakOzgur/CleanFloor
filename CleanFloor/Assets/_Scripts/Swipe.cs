@@ -1,154 +1,37 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class Swipe : MonoBehaviour
+public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    private float swipeMovementTreshold = 10;
-    private bool isDragging = false;
 
-    private bool tap = false;
-
-    private Vector2 startTouch, swipeDelta;
-
-    public Vector2 StartTouch { get => startTouch; }
-    public Vector2 SwipeDelta { get => swipeDelta; }
-    private int rotateDirection = 0;
-    public int RotateDirection { get => rotateDirection; }
-
-    private int upAndDownSwipe = 0;
-    public int UpAndDownSwipe { get => upAndDownSwipe; }
+    public Movement movement;
+    private Vector2 lastPosition = Vector2.zero;
 
 
-    private void Update()
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        tap = false;
-
-#if UNITY_EDITOR
-        StandAloneInput();
-
-#endif
-
-#if UNITY_IOS
-     MobileInput();
-#endif
-
-
-#if UNITY_ANDROID
-        MobileInput();
-#endif
-
-#if UNITY_EDITOR
-        CalculateDistance();
-#endif
-
-        //Did we cross the treschold distance
-
-        CheckMovementTouchThreshold();
-
-    }
-
-    private void CheckMovementTouchThreshold()
-    {
-        if (swipeDelta.magnitude > swipeMovementTreshold)
-        {
-
-            //what direction?
-            float x = swipeDelta.x;
-            float y = swipeDelta.y;
-
-
-            if (Mathf.Abs(x) > Mathf.Abs(y))
-            {
-                //left or right
-                if (x < 0)
-                {
-
-                    rotateDirection = -1;
-                }
-
-                else
-                {
-
-                    rotateDirection = 1;
-                }
-                return;
-            }
-            else
-            {
-                //up or down
-                if (y < 0)
-                    upAndDownSwipe = -1;
-                else
-                    upAndDownSwipe = 1;
-            }
-
-
-        }
-    }
-
-
-    private void MobileInput()
-    {
-        swipeDelta = Vector2.zero;
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    tap = true;
-                    isDragging = true;
-                    startTouch = Input.touches[0].position;
-                    break;
-
-                case TouchPhase.Moved:
-                    swipeDelta = Input.GetTouch(0).deltaPosition;
-                    break;
-
-                case TouchPhase.Ended:
-                    isDragging = false;
-                    Reset();
-                    break;
-            }
-
-        }
+        lastPosition = eventData.position;
 
 
     }
 
-    //this is for editor testing
-    private void StandAloneInput()
+    public void OnEndDrag(PointerEventData eventData)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            tap = true;
-            isDragging = true;
-            startTouch = Input.mousePosition;
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            isDragging = false;
-            Reset();
-        }
 
 
     }
-    private void CalculateDistance()
-    {
-        swipeDelta = Vector2.zero;
-        if (isDragging && Input.GetMouseButton(0))
-        {
-            swipeDelta = (Vector2)Input.mousePosition - startTouch;
-        }
-    }
 
-    private void Reset()
+    public void OnDrag(PointerEventData eventData)
     {
-        startTouch = swipeDelta = Vector2.zero;
-        isDragging = false;
-        rotateDirection = 0;
-        upAndDownSwipe = 0;
-    }
+        Vector2 direction = eventData.position - lastPosition;
+        if (direction.magnitude < 2)
+            return;
+        lastPosition = eventData.position;
 
+        movement.Move(direction.normalized);
+
+    }
 }
+

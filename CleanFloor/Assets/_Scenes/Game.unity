@@ -189,6 +189,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34376220e4eb6084e961fd6dc926c75e, type: 3}
+--- !u!114 &72627879 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9214320057177124265, guid: 9180532e6137940c5a6356b9f77db330,
+    type: 3}
+  m_PrefabInstance: {fileID: 9214320057872494050}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c8cf5c2b7224a1b9b41bf940fb8629, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &75158568
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 1458798668}
+  rotator: {fileID: 72627879}
   currentBotDirection: 0
 --- !u!1 &358075582
 GameObject:
@@ -2357,7 +2370,7 @@ PrefabInstance:
     - target: {fileID: 9214320056522499972, guid: 9180532e6137940c5a6356b9f77db330,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9214320056522499972, guid: 9180532e6137940c5a6356b9f77db330,
         type: 3}
@@ -2367,7 +2380,7 @@ PrefabInstance:
     - target: {fileID: 9214320056522499972, guid: 9180532e6137940c5a6356b9f77db330,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9214320056522499972, guid: 9180532e6137940c5a6356b9f77db330,
         type: 3}
@@ -2382,102 +2395,17 @@ PrefabInstance:
     - target: {fileID: 9214320056522499972, guid: 9180532e6137940c5a6356b9f77db330,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9214320056522499972, guid: 9180532e6137940c5a6356b9f77db330,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124271, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124271, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_Mass
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124271, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124270, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: swipeController
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124270, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124270, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124270, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124270, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: acceleration
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124270, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: moveDetectionThreshold
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124270, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124270, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: Speed
-      value: 22
-      objectReference: {fileID: 0}
     - target: {fileID: 9214320057177124265, guid: 9180532e6137940c5a6356b9f77db330,
         type: 3}
-      propertyPath: swipeController
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320056224132657, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320056224132657, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.4841226
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320056224132657, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 122.09
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320056224132657, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.87500024
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320056224132657, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320056817494220, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_Material
-      value: 
+      propertyPath: rotationSpeed
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9180532e6137940c5a6356b9f77db330, type: 3}

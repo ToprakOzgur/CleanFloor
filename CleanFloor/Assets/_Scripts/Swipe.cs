@@ -17,6 +17,7 @@ public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 {
 
     public Movement movement;
+    public Rotator rotator;
     private Vector2 lastPosition = Vector2.zero;
 
     [HideInInspector] public BotDirection currentBotDirection = BotDirection.Stop;
@@ -71,7 +72,7 @@ public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
         movement.ChangeDirection(currentBotDirection);
 
-
+        rotator.ChangeDirection(currentBotDirection);
     }
 }
 

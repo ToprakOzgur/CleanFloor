@@ -1,41 +1,47 @@
 ﻿using UnityEngine;
 public class Rotator : MonoBehaviour
 {
-    //     [SerializeField] private int rotateSpeed = 200;
+    private BotDirection currentDirection = BotDirection.Stop;
+    [SerializeField] private int rotationSpeed = 5;
 
-    //     private float smoothSpeed = 0.125f;
-    //     void FixedUpdate()
-    //     {
+    private Vector3 targetDir = Vector3.zero;
+    private void FixedUpdate()
+    {
 
-    //         //......up/down swipe
-    //         if (swipeController.UpAndDownSwipe != 0)
-    //         {
-    //             if (Mathf.Abs(transform.forward.x) < 0.05f)
-    //                 return;
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, Time.deltaTime * rotationSpeed, 0.0f);
 
-
-    //             int updown = 0;
-    //             if (transform.forward.x < 0)
-    //             {
-    //                 updown = -swipeController.UpAndDownSwipe;
-    //             }
-
-    //             else if (transform.forward.x > 0)
-    //             {
-    //                 updown = swipeController.UpAndDownSwipe;
-    //             }
+        transform.rotation = Quaternion.LookRotation(newDir);
 
 
-    //             transform.Rotate(Vector3.up, updown * rotateSpeed * Time.deltaTime, Space.World);
-    //             return;
-    //         }
+    }
+    public void ChangeDirection(BotDirection botDirection)
+    {
+        if (currentDirection == botDirection)
+            return;
+        currentDirection = botDirection;
 
+        switch (botDirection)
+        {
+            case BotDirection.Down:
+                Debug.Log("Down");
+                targetDir = -Vector3.forward;
+                break;
+            case BotDirection.Up:
+                targetDir = Vector3.forward;
+                Debug.Log("Up");
+                break;
+            case BotDirection.Left:
+                targetDir = Vector3.left;
+                Debug.Log("Lef");
+                break;
+            case BotDirection.Right:
+                targetDir = Vector3.right;
+                Debug.Log("Right");
+                break;
+            case BotDirection.Stop:
+                Debug.Log("Stop");
+                break;
+        }
+    }
 
-    //         if (swipeController.RotateDirection == 0)
-    //             return;
-
-
-    //         transform.Rotate(Vector3.up, swipeController.RotateDirection * rotateSpeed * Time.deltaTime, Space.World);
-
-    // }
 }

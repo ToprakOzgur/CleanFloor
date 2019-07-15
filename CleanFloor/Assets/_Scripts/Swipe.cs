@@ -40,11 +40,16 @@ public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
     public void OnDrag(PointerEventData eventData)
     {
+
+
+
         Vector2 direction = eventData.position - lastPosition;
         lastPosition = eventData.position;
 
+
         if (direction.magnitude < 10)
             return;
+
 
 
         if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))

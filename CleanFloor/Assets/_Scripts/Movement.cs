@@ -21,28 +21,7 @@ public class Movement : MonoBehaviour
 
     public void ChangeDirection(BotDirection botDirection)
     {
-        switch (botDirection)
-        {
-            case BotDirection.Down:
-                Debug.Log("Down");
-                forwardVector = -Vector3.forward;
-                break;
-            case BotDirection.Up:
-                forwardVector = Vector3.forward;
-                Debug.Log("Up");
-                break;
-            case BotDirection.Left:
-                forwardVector = Vector3.left;
-                Debug.Log("Lef");
-                break;
-            case BotDirection.Right:
-                forwardVector = Vector3.right;
-                Debug.Log("Right");
-                break;
-            case BotDirection.Stop:
-                Debug.Log("Stop");
-                break;
-        }
+        forwardVector = Helper.BotDirectionToforwardVector(botDirection);
 
     }
 

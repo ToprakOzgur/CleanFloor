@@ -9,7 +9,7 @@ public class Dust : MonoBehaviour
     public void MoveToVacuum(Transform botTransform)
     {
         complete = deactiveGO;
-        LeanTween.move(gameObject, botTransform.position, 0.3f).setEase(LeanTweenType.easeInExpo).setOnComplete(complete);
+        LeanTween.move(gameObject, botTransform.position, 0.5f).setEase(LeanTweenType.easeInExpo).setOnComplete(complete);
 
     }
 

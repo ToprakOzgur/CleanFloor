@@ -120,26 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &4161498 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9214320057177124264, guid: 9180532e6137940c5a6356b9f77db330,
-    type: 3}
-  m_PrefabInstance: {fileID: 9214320057872494050}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4161500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4161498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b04a1c16bd9c4213b1309fa4a1cf024, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dustGenerator: {fileID: 821579078}
-  power: 4
 --- !u!1001 &63568202
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -153,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 34376220e4eb6084e961fd6dc926c75e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 34376220e4eb6084e961fd6dc926c75e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -219,7 +199,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 9214320057872494050}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4161498}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80c8cf5c2b7224a1b9b41bf940fb8629, type: 3}
@@ -980,7 +960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 8601d5fcdac8dd940a6b547b3fc0a7fb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8601d5fcdac8dd940a6b547b3fc0a7fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1102,7 +1082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 34376220e4eb6084e961fd6dc926c75e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 34376220e4eb6084e961fd6dc926c75e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1558,7 +1538,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 9214320057872494050}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4161498}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cce4e07acece14864bbe468e9b65da7e, type: 3}
@@ -2374,16 +2354,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CleanBot
       objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124265, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: rotationSpeed
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124270, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: Speed
-      value: 22
-      objectReference: {fileID: 0}
     - target: {fileID: 9214320056522499972, guid: 9180532e6137940c5a6356b9f77db330,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2439,10 +2409,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9214320057177124271, guid: 9180532e6137940c5a6356b9f77db330,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 4161500, guid: 9180532e6137940c5a6356b9f77db330, type: 3}
+      propertyPath: dustGenerator
+      value: 
+      objectReference: {fileID: 821579078}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9180532e6137940c5a6356b9f77db330, type: 3}

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7487303456747507506}
   - component: {fileID: 8057226327918658141}
-  m_Layer: 0
+  - component: {fileID: 4760135029435976814}
+  m_Layer: 9
   m_Name: Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7487303456747507507}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 7487303457059717542}
   m_Father: {fileID: 0}
@@ -44,6 +45,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5eeac9810ee4fb5a674d6722db02a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &4760135029435976814
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7487303456747507507}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7487303457059717543
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Vacuum : MonoBehaviour
 {
-    [SerializeField] private DustGenerator dustGenerator;
-    // Start is called before the first frame update
     [SerializeField] private float power = 1.0f;
 
+
+    public Transform vacuumPoint;
 
     private bool powerOn = false;
     public bool PowerOn
@@ -28,6 +28,6 @@ public class Vacuum : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (PowerOn)
-            other.gameObject.GetComponent<Dust>().MoveToVacuum(this.transform);
+            other.gameObject.GetComponent<Dust>().MoveToVacuum(vacuumPoint);
     }
 }

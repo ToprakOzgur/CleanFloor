@@ -2409,9 +2409,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4161500, guid: 9180532e6137940c5a6356b9f77db330, type: 3}
-      propertyPath: dustGenerator
-      value: 
-      objectReference: {fileID: 821579078}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9180532e6137940c5a6356b9f77db330, type: 3}

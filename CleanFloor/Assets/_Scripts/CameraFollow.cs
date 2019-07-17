@@ -5,7 +5,9 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-
+    public LevelGenerator levelelGenerator;
+    private float roomWidth = 10;
+    private float roomLength = 10;
     public float smoothSpeed = 0.125f;
     private Vector3 offset;
 
@@ -14,12 +16,18 @@ public class CameraFollow : MonoBehaviour
         //offset = transform.position;
         offset = transform.position - target.position;
     }
+
+    private void Start()
+    {
+        roomWidth = levelelGenerator.room.width;
+        roomLength = levelelGenerator.room.length;
+    }
     void FixedUpdate()
     {
-        // Vector3 desiredPosition = new Vector3(target.position.x + offset.x, transform.position.y, transform.position.z);
+
         Vector3 desiredPosition = target.position + offset;
-        float clambepDesiredPosX = Mathf.Clamp(desiredPosition.x, -30.0f, 26.0f);
-        float clambepDesiredPosZ = Mathf.Clamp(desiredPosition.z, -9.5f, 13.0f);
+        float clambepDesiredPosX = Mathf.Clamp(desiredPosition.x, -(5 * roomWidth - 13), 5 * roomWidth - 13);
+        float clambepDesiredPosZ = Mathf.Clamp(desiredPosition.z, -(5 * roomLength - 15), (5 * roomLength - 25));
         var clambepDesiredPos = new Vector3(clambepDesiredPosX, transform.position.y, transform.position.z);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, clambepDesiredPos, smoothSpeed);
         transform.position = smoothedPosition;

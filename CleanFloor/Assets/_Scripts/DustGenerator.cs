@@ -7,22 +7,20 @@ public class DustGenerator : MonoBehaviour
     [SerializeField] private GameObject dust = null;
     [SerializeField] private int xDistance = 0;
     [SerializeField] private int yDistance = 0;
-    [SerializeField] private int roomWeight = 0;
-    [SerializeField] private int roomHeight = 0;
-
-
-    [HideInInspector] public List<GameObject> AllDust = new List<GameObject>();
-    // Start is called before the first frame update
+    [SerializeField] private LevelGenerator levelGenerator;
     void Start()
     {
-        for (int i = -roomWeight; i < roomWeight; i += xDistance)
+        var roomWidth = Mathf.CeilToInt(levelGenerator.room.width * 5) - 1;
+        var roomLength = Mathf.CeilToInt(levelGenerator.room.length * 5) - 1;
+
+        for (int i = -roomWidth; i < roomWidth; i += xDistance)
         {
-            for (int k = -roomHeight; k < roomHeight; k += yDistance)
+            for (int k = -roomLength; k < roomLength; k += yDistance)
             {
                 Vector3 pos = new Vector3(i, 0, k);
                 var newDust = GameObject.Instantiate(dust, pos, Quaternion.identity);
                 newDust.transform.SetParent(this.gameObject.transform);
-                AllDust.Add(newDust);
+
             }
         }
     }

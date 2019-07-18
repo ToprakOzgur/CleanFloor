@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4760135029435976814}
   m_Layer: 9
   m_Name: Dust
-  m_TagString: Untagged
+  m_TagString: Dust
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc5eeac9810ee4fb5a674d6722db02a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col: {fileID: 0}
 --- !u!65 &4760135029435976814
 BoxCollider:
   m_ObjectHideFlags: 0

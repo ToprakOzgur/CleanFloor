@@ -28,6 +28,9 @@ public class Vacuum : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (PowerOn)
-            other.gameObject.GetComponent<Dust>().MoveToVacuum(vacuumPoint);
+        {
+            if (other.gameObject.tag == "Dust")
+                other.gameObject.GetComponent<Dust>().MoveToVacuum(vacuumPoint);
+        }
     }
 }

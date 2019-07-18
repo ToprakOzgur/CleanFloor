@@ -26,9 +26,9 @@ public class CameraFollow : MonoBehaviour
     {
 
         Vector3 desiredPosition = target.position + offset;
-        float clambepDesiredPosX = Mathf.Clamp(desiredPosition.x, -(5 * roomWidth - 13), 5 * roomWidth - 13);
-        float clambepDesiredPosZ = Mathf.Clamp(desiredPosition.z, -(5 * roomLength - 15), (5 * roomLength - 25));
-        var clambepDesiredPos = new Vector3(clambepDesiredPosX, transform.position.y, transform.position.z);
+        float clambepDesiredPosX = Mathf.Clamp(desiredPosition.x, -(5 * roomWidth - 15), 5 * roomWidth - 15.2f);
+        float clambepDesiredPosZ = Mathf.Clamp(desiredPosition.z, -(5 * roomLength + 9.5f), (5 * roomLength - 55));
+        var clambepDesiredPos = new Vector3(clambepDesiredPosX, transform.position.y, clambepDesiredPosZ);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, clambepDesiredPos, smoothSpeed);
         transform.position = smoothedPosition;
 

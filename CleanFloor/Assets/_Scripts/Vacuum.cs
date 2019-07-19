@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Vacuum : MonoBehaviour
 {
-    [SerializeField] private float power = 1.0f;
-
 
     public Transform vacuumPoint;
 

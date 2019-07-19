@@ -2,18 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum RoomType
+{
+    Kitchen,
+    Office,
+    Bathroom,
+}
 public class Room
 {
     public float width;
     public float length;
     public float height;
 
-    public Room(float width, float length, float height)
+    public RoomType roomtype;
+
+
+    public Room(float width, float length, float height, RoomType roomtype)
     {
         this.width = width;
         this.length = length;
         this.height = height;
+        this.roomtype = roomtype;
+
     }
+
+
     #region updown walls
     public Vector3 upWallPosition()
     {
@@ -60,7 +74,7 @@ public class Room
 
     public Vector3 righLeftWallScale()
     {
-        return new Vector3(length, 1, height);
+        return new Vector3(length + 1, 1, height);
     }
     #endregion
 

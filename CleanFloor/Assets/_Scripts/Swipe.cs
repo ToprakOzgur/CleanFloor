@@ -22,8 +22,6 @@ public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
     [HideInInspector] public BotDirection currentBotDirection = BotDirection.Stop;
 
-    BotDirection LastBotDirection = BotDirection.Stop;
-
 
     public void OnBeginDrag(PointerEventData eventData)
     {

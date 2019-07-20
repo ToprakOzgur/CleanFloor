@@ -6,7 +6,6 @@ public class RoomGenerator : MonoBehaviour
 {
     public GameObject roomRoot;
 
-    public RoomType roomtype = RoomType.Kitchen;
     public float roomHeight;
     public GameObject floor;
     public GameObject wall;
@@ -21,7 +20,7 @@ public class RoomGenerator : MonoBehaviour
     public void CreateRoom(Room room)
     {
         myRoom = room;
-        int textureUpDownnumber = GetRandomValue(0, wallTextures.Length);
+        int textureUpDownnumber = RandomNumberGenerator.NextRandomInt(0, wallTextures.Length);
 
         //locate up/down walls
         var wallUp = GameObject.Instantiate(wallUpDown, room.upWallPosition(), room.upWallRotation(), roomRoot.transform);
@@ -41,7 +40,7 @@ public class RoomGenerator : MonoBehaviour
 
         var floorGO = GameObject.Instantiate(floor, Vector3.zero, Quaternion.identity, roomRoot.transform);
         floorGO.transform.localScale = new Vector3(room.width + 0.5f, 0, room.length + 0.5f);
-        floorGO.GetComponent<Renderer>().material.mainTexture = flootRextures[GetRandomValue(0, flootRextures.Length)];
+        floorGO.GetComponent<Renderer>().material.mainTexture = flootRextures[RandomNumberGenerator.NextRandomInt(0, flootRextures.Length, true)];
 
     }
 
@@ -80,14 +79,6 @@ public class RoomGenerator : MonoBehaviour
     {
 
         return UnityEngine.Random.Range(min, max);
-    }
-
-    [System.Serializable]
-    public struct RoomSize
-    {
-        public int width;
-        public int length;
-
     }
 
     [System.Serializable]

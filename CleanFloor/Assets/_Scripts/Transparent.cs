@@ -22,4 +22,9 @@ public class Transparent : MonoBehaviour
     {
         myRenderer.material = normalMaterial;
     }
+
+    public void BecomeTransparent()
+    {
+        throw new System.NotImplementedException();
+    }
 }

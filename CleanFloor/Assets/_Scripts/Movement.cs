@@ -15,8 +15,9 @@ public class Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.position += forwardVector * Time.deltaTime * Speed;
-
+        myRigidbody.velocity = Vector3.zero;
+        // transform.position += forwardVector * Time.deltaTime * Speed;
+        myRigidbody.MovePosition(myRigidbody.position + forwardVector * Time.deltaTime * Speed);
     }
 
     public void ChangeDirection(BotDirection botDirection)

@@ -74,7 +74,7 @@ public class Room
 
     public Vector3 righLeftWallScale()
     {
-        return new Vector3(length + 1, 1, height);
+        return new Vector3(length, 1, height);
     }
     #endregion
 

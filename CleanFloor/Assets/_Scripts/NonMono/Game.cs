@@ -9,7 +9,9 @@ public class Game
     public Game()
     {
         int levelNumber = GetLastSavedLevel();
+        RandomNumberGenerator.seed = levelNumber;
         level = new Level(levelNumber);
+
 
     }
     public void GoNextLevel()

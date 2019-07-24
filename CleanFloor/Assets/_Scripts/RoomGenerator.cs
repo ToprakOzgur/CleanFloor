@@ -4,59 +4,72 @@ using UnityEngine;
 
 public class RoomGenerator : MonoBehaviour
 {
+
+    [HideInInspector] public RoomSize roomSize;
     public GameObject roomRoot;
 
     public float roomHeight;
     public GameObject floor;
-    public GameObject wall;
-    public GameObject wallUpDown;
+    public Material wallLeftRightMaterial;
+    public Material wallUpDownMaterial;
 
     public Texture[] flootRextures;
     public WallTextures[] wallTextures;
     public GameObject dust = null;
 
-    [HideInInspector] public Room myRoom;
+    public RoomType roomType;
 
-    public void CreateRoom(Room room)
+    [HideInInspector] public int dustCount = 0;
+
+    private void Awake()
     {
-        myRoom = room;
+
+        GameObject.Instantiate(roomRoot, Vector3.zero, Quaternion.identity);
+        GetRoomSizes();
+    }
+    private void GetRoomSizes()
+    {
+        roomSize.width = (int)GameObject.FindGameObjectWithTag("WallUp").transform.localScale.x;
+        roomSize.length = (int)GameObject.FindGameObjectWithTag("WallLeft").transform.localScale.x;
+    }
+    private void Start()
+    {
+        CreateRoomColor();
+        CreateDust();
+    }
+    public void CreateRoomColor()
+    {
+
         int textureUpDownnumber = RandomNumberGenerator.NextRandomInt(0, wallTextures.Length);
 
-        //locate up/down walls
-        var wallUp = GameObject.Instantiate(wallUpDown, room.upWallPosition(), room.upWallRotation(), roomRoot.transform);
-        var wallDown = GameObject.Instantiate(wallUpDown, room.downWallPosition(), room.downWallRotation(), roomRoot.transform);
-        wallUp.transform.localScale = wallDown.transform.localScale = room.upDownWallScale();
 
-        wallUp.GetComponent<Renderer>().material.mainTexture = wallTextures[textureUpDownnumber].rightLeft;
-        wallDown.GetComponent<Renderer>().material.mainTexture = wallTextures[textureUpDownnumber].rightLeft;
+        wallUpDownMaterial.mainTexture = wallTextures[textureUpDownnumber].upDown;
+        wallLeftRightMaterial.mainTexture = wallTextures[textureUpDownnumber].rightLeft;
 
-        //locate roght/left walls
-        var wallLeft = GameObject.Instantiate(wall, room.leftWallPosition(), room.leftWallRotation(), roomRoot.transform);
-        var wallRight = GameObject.Instantiate(wall, room.rightWallPosition(), room.rightWallRotation(), roomRoot.transform);
-        wallLeft.transform.localScale = wallRight.transform.localScale = room.righLeftWallScale();
-
-        wallLeft.GetComponent<Renderer>().material.mainTexture = wallTextures[textureUpDownnumber].upDown;
-        wallRight.GetComponent<Renderer>().material.mainTexture = wallTextures[textureUpDownnumber].upDown;
-
-        var floorGO = GameObject.Instantiate(floor, Vector3.zero, Quaternion.identity, roomRoot.transform);
-        floorGO.transform.localScale = new Vector3(room.width + 0.5f, 0, room.length + 0.5f);
-        floorGO.GetComponent<Renderer>().material.mainTexture = flootRextures[RandomNumberGenerator.NextRandomInt(0, flootRextures.Length, true)];
+        // var floorGO = GameObject.Instantiate(floor, Vector3.zero, Quaternion.identity, roomRoot.transform);
+        var floorGO = GameObject.FindGameObjectWithTag("Floor");
+        floorGO.GetComponent<Renderer>().sharedMaterial.mainTexture = flootRextures[RandomNumberGenerator.NextRandomInt(0, flootRextures.Length, 9999)];
 
     }
 
-    public void CreateDust(Room room, int xDistance, int yDistance)
+    public void CreateDust()
     {
+        float radius = 1f;
+        float wallEdgesSpace = 2;
+        Vector2 regionSize = new Vector2(roomSize.width * 10 - wallEdgesSpace, roomSize.length * 10 - wallEdgesSpace);
+        int rejectionSamples = 10;
+        List<Vector2> points;
 
-        var roomWidth = Mathf.CeilToInt(myRoom.width * 5) - 1;
-        var roomLength = Mathf.CeilToInt(myRoom.length * 5) - 1;
-        for (int i = -roomWidth; i < roomWidth; i += xDistance)
+        points = PoissonDiscSampling.GeneratePoints(radius, regionSize, rejectionSamples);
+        dustCount = points.Count;
+
+        if (points != null)
         {
-            for (int k = -roomLength; k < roomLength; k += yDistance)
+            foreach (Vector2 point in points)
             {
-                Vector3 pos = new Vector3(i, 0, k);
+                Vector3 pos = new Vector3(point.x - roomSize.width * 5 + wallEdgesSpace / 2, 0, point.y - roomSize.length * 5 + wallEdgesSpace / 2);
                 var newDust = GameObject.Instantiate(dust, pos, Quaternion.identity);
                 newDust.transform.SetParent(this.gameObject.transform);
-
             }
         }
     }
@@ -65,27 +78,20 @@ public class RoomGenerator : MonoBehaviour
         Destroy(roomRoot);
     }
 
-    private void LocateObstacles()
-    {
-
-    }
-
-    private float GetRandomValue(float min, float max)
-    {
-
-        return UnityEngine.Random.Range(min, max);
-    }
-    private int GetRandomValue(int min, int max)
-    {
-
-        return UnityEngine.Random.Range(min, max);
-    }
-
     [System.Serializable]
     public struct WallTextures
     {
         public Texture upDown;
         public Texture rightLeft;
+
+    }
+
+
+    [System.Serializable]
+    public struct RoomSize
+    {
+        public int width;
+        public int length;
 
     }
 

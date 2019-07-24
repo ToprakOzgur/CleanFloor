@@ -17,6 +17,7 @@ public class Dust : MonoBehaviour
 
     private void Awake()
     {
+
         col = GetComponent<Collider>();
     }
     public void MoveToVacuum(Transform bot)
@@ -68,3 +69,5 @@ public class Dust : MonoBehaviour
     }
 
 }
+
+

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Dust
+  - Floor
+  - RoomGenerator
+  - WallUp
+  - WallLeft
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - 
   - VacuumCol
   - Dust
-  - 
+  - ObjectDustCleaner
   - 
   - 
   - 

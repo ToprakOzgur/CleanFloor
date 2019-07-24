@@ -16,10 +16,12 @@ public class Transparent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         myRenderer.material = transparentMaterial;
     }
     private void OnTriggerExit(Collider other)
     {
+
         myRenderer.material = normalMaterial;
     }
 

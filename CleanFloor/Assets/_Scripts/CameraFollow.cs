@@ -19,14 +19,14 @@ public class CameraFollow : MonoBehaviour
 
     private void Start()
     {
-        roomWidth = roomGenerator.myRoom.width;
-        roomLength = roomGenerator.myRoom.length;
+        roomWidth = roomGenerator.roomSize.width;
+        roomLength = roomGenerator.roomSize.length;
     }
     void FixedUpdate()
     {
 
         Vector3 desiredPosition = target.position + offset;
-        float clambepDesiredPosX = Mathf.Clamp(desiredPosition.x, -(5 * roomWidth - 13f), 5 * roomWidth - 13f);
+        float clambepDesiredPosX = Mathf.Clamp(desiredPosition.x, -(5 * roomWidth - 10f), 5 * roomWidth - 10f);
         float clambepDesiredPosZ = Mathf.Clamp(desiredPosition.z, -(5 * roomLength + 5.0f), (5 * roomLength - 50));
         var clambepDesiredPos = new Vector3(clambepDesiredPosX, desiredPosition.y, clambepDesiredPosZ);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, clambepDesiredPos, smoothSpeed);

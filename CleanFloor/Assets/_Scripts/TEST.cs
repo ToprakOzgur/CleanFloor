@@ -28,7 +28,7 @@ public class TEST : MonoBehaviour
     public void RestartScreen()
     {
 
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("restart");
     }
 

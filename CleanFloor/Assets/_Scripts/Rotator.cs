@@ -3,8 +3,14 @@ public class Rotator : MonoBehaviour
 {
     private BotDirection currentDirection = BotDirection.Stop;
     public int rotationSpeed = 13;
+    [HideInInspector] public int firstRotationSpeed = 13;
 
     private Vector3 targetDir = Vector3.zero;
+
+    private void Start()
+    {
+        firstRotationSpeed = rotationSpeed;
+    }
     private void FixedUpdate()
     {
 

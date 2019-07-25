@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 22
+  rotator: {fileID: 9214320057177124265}
 --- !u!114 &9214320057177124265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 13
+  firstRotationSpeed: 13
 --- !u!114 &4161500
 MonoBehaviour:
   m_ObjectHideFlags: 0

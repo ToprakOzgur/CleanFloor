@@ -6,6 +6,7 @@ using UnityEngine;
 public class Level
 {
     public event Action<int> onProgressChangedEvent = delegate { };
+    public event Action onLevelComplated = delegate { };
     public int levelNumber;
 
     public int underObjectsDustCount = 0;
@@ -28,6 +29,10 @@ public class Level
 
             progress = Mathf.FloorToInt((100 - (float)(dustCount - underObjectsDustCount - cleanedDustCount) / (float)(dustCount - underObjectsDustCount) * 100));
             onProgressChangedEvent(progress);
+            if (progress == 100)
+            {
+                onLevelComplated();
+            }
 
         }
     }

@@ -833,10 +833,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 5d9111d7-83be-47c9-b5aa-d78bf3824ed9
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: CleanFloor
+  organizationId: lotus-gamestudios
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

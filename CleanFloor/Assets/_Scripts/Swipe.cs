@@ -16,15 +16,21 @@ public enum BotDirection
 public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
 
+    public Vacuum vacuum;
     public Movement movement;
     public Rotator rotator;
     private Vector2 lastPosition = Vector2.zero;
 
     [HideInInspector] public BotDirection currentBotDirection = BotDirection.Stop;
-
+    private bool isStarted = false;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (!isStarted)
+        {
+            isStarted = true;
+            vacuum.PowerOn = true;
+        }
         lastPosition = eventData.position;
 
 

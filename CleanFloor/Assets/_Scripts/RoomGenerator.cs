@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomGenerator : MonoBehaviour
 {
+    public Text progressText;
 
     [HideInInspector] public RoomSize roomSize;
     public GameObject roomRoot;
@@ -18,8 +20,7 @@ public class RoomGenerator : MonoBehaviour
     public GameObject dust = null;
 
     public RoomType roomType;
-
-    [HideInInspector] public int dustCount = 0;
+    [SerializeField] private GameManager gameManager;
 
     private void Awake()
     {
@@ -39,14 +40,11 @@ public class RoomGenerator : MonoBehaviour
     }
     public void CreateRoomColor()
     {
-
         int textureUpDownnumber = RandomNumberGenerator.NextRandomInt(0, wallTextures.Length);
-
 
         wallUpDownMaterial.mainTexture = wallTextures[textureUpDownnumber].upDown;
         wallLeftRightMaterial.mainTexture = wallTextures[textureUpDownnumber].rightLeft;
 
-        // var floorGO = GameObject.Instantiate(floor, Vector3.zero, Quaternion.identity, roomRoot.transform);
         var floorGO = GameObject.FindGameObjectWithTag("Floor");
         floorGO.GetComponent<Renderer>().sharedMaterial.mainTexture = flootRextures[RandomNumberGenerator.NextRandomInt(0, flootRextures.Length, 9999)];
 
@@ -61,7 +59,7 @@ public class RoomGenerator : MonoBehaviour
         List<Vector2> points;
 
         points = PoissonDiscSampling.GeneratePoints(radius, regionSize, rejectionSamples);
-        dustCount = points.Count;
+
 
         if (points != null)
         {
@@ -70,6 +68,7 @@ public class RoomGenerator : MonoBehaviour
                 Vector3 pos = new Vector3(point.x - roomSize.width * 5 + wallEdgesSpace / 2, 0, point.y - roomSize.length * 5 + wallEdgesSpace / 2);
                 var newDust = GameObject.Instantiate(dust, pos, Quaternion.identity);
                 newDust.transform.SetParent(this.gameObject.transform);
+                gameManager.game.level.dustCount++;
             }
         }
     }
@@ -83,16 +82,13 @@ public class RoomGenerator : MonoBehaviour
     {
         public Texture upDown;
         public Texture rightLeft;
-
     }
 
-
-    [System.Serializable]
     public struct RoomSize
     {
         public int width;
         public int length;
-
     }
+
 
 }

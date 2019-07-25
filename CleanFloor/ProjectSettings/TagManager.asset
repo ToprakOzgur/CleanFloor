@@ -9,6 +9,7 @@ TagManager:
   - RoomGenerator
   - WallUp
   - WallLeft
+  - GM
   layers:
   - Default
   - TransparentFX

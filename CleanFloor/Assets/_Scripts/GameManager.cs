@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private Game game;
+    [HideInInspector] public Game game;
     private void Awake()
     {
         game = new Game();

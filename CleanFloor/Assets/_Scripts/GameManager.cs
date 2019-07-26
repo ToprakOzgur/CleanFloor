@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [HideInInspector] public Game game;
+
+    public static int MaxRobotHealth = 15;
     private void Awake()
     {
         game = new Game();

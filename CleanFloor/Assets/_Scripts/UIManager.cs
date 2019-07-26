@@ -7,20 +7,32 @@ public class UIManager : MonoBehaviour
 {
 
     public Text proggressIndicator;
-    public GameManager gameManager;
-
+    public Text touchTimer;
+    public Slider DemageSlider;
     private void Start()
     {
-        gameManager.game.level.onProgressChangedEvent += ProgressChangedEvent;
+        touchTimer.text = (GameManager.MaxRobotHealth).ToString();
+        Level.OnProgressChangedEvent += ProgressChangedEvent;
+        Level.OnDemagedEvent += Demaged;
+
+
     }
     private void OnDisable()
     {
-        gameManager.game.level.onProgressChangedEvent -= ProgressChangedEvent;
+        Level.OnProgressChangedEvent -= ProgressChangedEvent;
+        Level.OnDemagedEvent -= Demaged;
     }
 
 
     public void ProgressChangedEvent(int progress)
     {
         proggressIndicator.text = proggressIndicator.text = $"%{progress}";
+    }
+
+    public void Demaged(float time)
+    {
+        touchTimer.text = (GameManager.MaxRobotHealth - time).ToString("F2");
+        DemageSlider.value = (time / (float)GameManager.MaxRobotHealth);
+
     }
 }

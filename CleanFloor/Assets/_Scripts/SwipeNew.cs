@@ -2,18 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-
-
-public enum BotDirection
-{
-    Stop = 0,
-    Left = 1,
-    Right = 2,
-    Up = 3,
-    Down = 4
-
-}
-public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class SwipeNew : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
 
     public Vacuum vacuum;
@@ -36,7 +25,6 @@ public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
 
     }
-
     private void Start()
     {
 
@@ -54,45 +42,16 @@ public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
         Vector2 direction = eventData.position - lastPosition;
         lastPosition = eventData.position;
-
+        Debug.Log(direction.normalized);
 
         if (direction.magnitude < 10)
             return;
 
 
 
-        if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))
-        {
-            if (direction.x < 0)
-            {
-                newBotDirection = BotDirection.Left;
-            }
-            else if (direction.x > 0)
-            {
-                newBotDirection = BotDirection.Right;
-            }
-        }
-        else
-        {
-            if (direction.y < 0)
-            {
-                newBotDirection = BotDirection.Down;
-            }
-            else if (direction.y > 0)
-            {
-                newBotDirection = BotDirection.Up;
-            }
-        }
+        movement.ChangeDirection(direction);
 
-        // if (CheckIfReverseMove(newBotDirection))
-        // {
-
-        //     return;
-        // }
-        lastBotDirection = newBotDirection;
-        movement.ChangeDirection(newBotDirection);
-
-        rotator.ChangeDirection(newBotDirection);
+        rotator.ChangeDirection(direction);
     }
 
     private bool CheckIfReverseMove(BotDirection newBotDirection)

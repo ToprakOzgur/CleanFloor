@@ -28,5 +28,11 @@ public class Rotator : MonoBehaviour
         targetDir = Helper.BotDirectionToforwardVector(botDirection);
 
     }
+    public void ChangeDirection(Vector2 botDirection)
+    {
+        var normalizedDirection = botDirection.normalized;
+        targetDir = new Vector3(normalizedDirection.x, 0, normalizedDirection.y);
+
+    }
 
 }

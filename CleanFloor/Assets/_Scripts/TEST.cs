@@ -14,13 +14,15 @@ public class TEST : MonoBehaviour
     public Movement movement;
 
     public CameraFollow camfollow;
-
+    public Button easyButton;
     public Rotator rotator;
     // Start is called before the first frame update
 
 
     void Start()
     {
+
+        Level.OnDemagedEvent += Demaged;
         angleText.text = Camera.main.transform.eulerAngles.x.ToString();
         zDistanceText.text = Camera.main.transform.position.z.ToString();
         yDistanceText.text = Camera.main.transform.position.y.ToString();
@@ -113,4 +115,33 @@ public class TEST : MonoBehaviour
 
     }
 
+
+    public void easy()
+    {
+        GameManager.MaxRobotHealth = 15;
+        //  GameManager.FindObjectOfType<UIManager>().touchTimer.text = "15";
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
+    public void medium()
+    {
+        GameManager.MaxRobotHealth = 10;
+        //  GameManager.FindObjectOfType<UIManager>().touchTimer.text = "10";
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+    }
+    public void hard()
+    {
+        GameManager.MaxRobotHealth = 5;
+        //GameManager.FindObjectOfType<UIManager>().touchTimer.text = "5";
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Demaged(float time)
+    {
+        if (time / (float)GameManager.MaxRobotHealth >= 1)
+        {
+            RestartScreen();
+        }
+
+    }
 }

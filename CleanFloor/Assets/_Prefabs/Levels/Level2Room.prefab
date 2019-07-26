@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1812134843331847945
 Transform:
@@ -31,7 +31,7 @@ Transform:
   - {fileID: 1812134842388521090}
   - {fileID: 1812134842300345659}
   - {fileID: 1812134842398246545}
-  - {fileID: 9133391362035850419}
+  - {fileID: 1812134842048027164}
   - {fileID: 8641712982208784916}
   - {fileID: 8641712982435627916}
   - {fileID: 8641712982126027049}
@@ -59,7 +59,7 @@ MonoBehaviour:
   wallRight: {fileID: 8641712981222353297}
   wallUp: {fileID: 8641712982208784916}
   wallDown: {fileID: 8641712982435627916}
-  floor: {fileID: 9133391362035850419}
+  floor: {fileID: 1812134842048027164}
   width: 6
   lenght: 5
 --- !u!1001 &235075601624282619
@@ -73,6 +73,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stove
+      objectReference: {fileID: 0}
+    - target: {fileID: 1902444331000726752, guid: 40f3b90c49eb045518d4325f7dce8a79,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1902444331001092288, guid: 40f3b90c49eb045518d4325f7dce8a79,
         type: 3}
@@ -134,6 +139,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 10.0000105
       objectReference: {fileID: 0}
+    - target: {fileID: 7242399953612070762, guid: 40f3b90c49eb045518d4325f7dce8a79,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40f3b90c49eb045518d4325f7dce8a79, type: 3}
 --- !u!4 &1812134842300345659 stripped
@@ -153,6 +163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: KitchenCabinet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467852570683186824, guid: 42504726441ba499da040d0c62c3f04b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6467852570683277992, guid: 42504726441ba499da040d0c62c3f04b,
         type: 3}
@@ -213,6 +228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 10.0000105
+      objectReference: {fileID: 0}
+    - target: {fileID: 2299810529583774574, guid: 42504726441ba499da040d0c62c3f04b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42504726441ba499da040d0c62c3f04b, type: 3}
@@ -386,7 +406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f38176419da574978bbf89f6d33e9a57, type: 3}
---- !u!4 &9133391362035850419 stripped
+--- !u!4 &1812134842048027164 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7486579089720280613, guid: f38176419da574978bbf89f6d33e9a57,
     type: 3}
@@ -402,6 +422,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: fe69c8f478724484ea714ad5c5d3512e, type: 3}
       propertyPath: m_Name
       value: Painting03
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: fe69c8f478724484ea714ad5c5d3512e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe69c8f478724484ea714ad5c5d3512e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -470,6 +494,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KitchenCabinetSink
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 98ba43e21e5deb946922165f0476a54a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 98ba43e21e5deb946922165f0476a54a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.28
@@ -517,6 +545,11 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 98ba43e21e5deb946922165f0476a54a, type: 3}
       propertyPath: m_LocalScale.x
       value: 10.0000105
+      objectReference: {fileID: 0}
+    - target: {fileID: 4446562542895095214, guid: 98ba43e21e5deb946922165f0476a54a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98ba43e21e5deb946922165f0476a54a, type: 3}
@@ -803,6 +836,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: KitchenCabinetWall
       objectReference: {fileID: 0}
+    - target: {fileID: 3104881688462663245, guid: 2004109e9b43a44489724225a233e11b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3104881688462295661, guid: 2004109e9b43a44489724225a233e11b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -883,6 +921,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fridge
       objectReference: {fileID: 0}
+    - target: {fileID: 3359679650891408023, guid: 2e604471eedc947cbaaf33a199fef976,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3359679650891185847, guid: 2e604471eedc947cbaaf33a199fef976,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -938,6 +981,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 8613049459587683238, guid: 2e604471eedc947cbaaf33a199fef976,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3359679650891408017, guid: 2e604471eedc947cbaaf33a199fef976,
         type: 3}
       propertyPath: m_Size.x
@@ -981,7 +1029,7 @@ PrefabInstance:
     - target: {fileID: 9126460217000868749, guid: 21993540680894b30a43ab93377fe8da,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9126460217001093037, guid: 21993540680894b30a43ab93377fe8da,
         type: 3}
@@ -1041,17 +1089,17 @@ PrefabInstance:
     - target: {fileID: 9126460217000868747, guid: 21993540680894b30a43ab93377fe8da,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9126460217000868751, guid: 21993540680894b30a43ab93377fe8da,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9126460217000868745, guid: 21993540680894b30a43ab93377fe8da,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 4294967295
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21993540680894b30a43ab93377fe8da, type: 3}

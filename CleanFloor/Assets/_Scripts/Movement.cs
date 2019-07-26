@@ -12,11 +12,15 @@ public class Movement : MonoBehaviour
     private Vector3 forwardVector = Vector3.zero;
 
     public Rotator rotator;
+
+    public GameManager gameManager;
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
         firstSpeed = Speed;
     }
+
+
     private void FixedUpdate()
     {
         myRigidbody.velocity = Vector3.zero;
@@ -29,17 +33,28 @@ public class Movement : MonoBehaviour
         forwardVector = Helper.BotDirectionToforwardVector(botDirection);
 
     }
+    public void ChangeDirection(Vector2 botDirection)
+    {
+        var normalizedVector = botDirection.normalized;
+        forwardVector = new Vector3(normalizedVector.x, 0, normalizedVector.y);
+
+    }
 
     private void OnCollisionStay(Collision other)
     {
+
+
         if (other.gameObject.CompareTag("WallLeft") || other.gameObject.CompareTag("WallUp"))
         {
-            Speed = 3 * firstSpeed / 4;
-            rotator.rotationSpeed = 3 * rotator.firstRotationSpeed / 4;
+
+            // Debug.Log(transform.forward);
+            // Speed = 3 * firstSpeed / 4;
+            // rotator.rotationSpeed = 3 * rotator.firstRotationSpeed / 4;
             return;
         }
-        Speed = firstSpeed / 2;
-        rotator.rotationSpeed = rotator.firstRotationSpeed / 2;
+        gameManager.game.level.TouchTime += Time.deltaTime;
+        Speed = firstSpeed / 4;
+        rotator.rotationSpeed = rotator.firstRotationSpeed / 4;
     }
     private void OnCollisionExit(Collision other)
     {

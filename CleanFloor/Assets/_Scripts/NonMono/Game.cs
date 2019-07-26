@@ -6,8 +6,10 @@ public class Game
 {
     public Level level;
 
+
     public Game()
     {
+
         int levelNumber = GetLastSavedLevel();
         RandomNumberGenerator.seed = levelNumber;
         level = new Level(levelNumber);

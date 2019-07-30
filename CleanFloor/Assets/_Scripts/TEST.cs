@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TEST : MonoBehaviour
 {
 
-    public Text angleText;
+    public Text speedText;
     public Text zDistanceText;
     public Text yDistanceText;
 
@@ -23,9 +23,8 @@ public class TEST : MonoBehaviour
     {
 
         Level.OnDemagedEvent += Demaged;
-        angleText.text = Camera.main.transform.eulerAngles.x.ToString();
-        zDistanceText.text = Camera.main.transform.position.z.ToString();
-        yDistanceText.text = Camera.main.transform.position.y.ToString();
+        speedText.text = movement.Speed.ToString();
+
     }
     public void RestartScreen()
     {
@@ -41,13 +40,15 @@ public class TEST : MonoBehaviour
     public void IncreaseSpeed()
     {
         movement.Speed++;
-        angleText.text = movement.Speed.ToString();
+        movement.firstSpeed++;
+        speedText.text = movement.Speed.ToString();
 
     }
     public void DecreaseSpeed()
     {
         movement.Speed--;
-        angleText.text = movement.Speed.ToString();
+        movement.firstSpeed--;
+        speedText.text = movement.Speed.ToString();
     }
 
     public void IncreaseRotSpeed()
@@ -67,7 +68,7 @@ public class TEST : MonoBehaviour
         Debug.Log(x);
         Camera.main.transform.eulerAngles = new Vector3(x - 1, 0, 0);
         camfollow.ChangePos();
-        angleText.text = Camera.main.transform.eulerAngles.x.ToString();
+        //angleText.text = Camera.main.transform.eulerAngles.x.ToString();
     }
 
     public void inreaseAngle()
@@ -76,7 +77,7 @@ public class TEST : MonoBehaviour
         Debug.Log(x);
         Camera.main.transform.eulerAngles = new Vector3(x + 1, 0, 0);
         camfollow.ChangePos();
-        angleText.text = Camera.main.transform.eulerAngles.x.ToString();
+        //angleText.text = Camera.main.transform.eulerAngles.x.ToString();
     }
 
     public void DecreaseUzaklik()

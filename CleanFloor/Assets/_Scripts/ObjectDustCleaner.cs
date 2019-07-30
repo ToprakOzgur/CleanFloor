@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectDustCleaner : MonoBehaviour
 {
     [HideInInspector] public RoomGenerator roomGenerator;
-    public GameManager gameManager;
+    [HideInInspector] public GameManager gameManager;
     private void Awake()
     {
         roomGenerator = GameObject.FindGameObjectWithTag("RoomGenerator").GetComponent<RoomGenerator>();
@@ -15,8 +15,7 @@ public class ObjectDustCleaner : MonoBehaviour
     {
         if (other.CompareTag("Dust"))
         {
-            // Destroy(other.gameObject);
-            other.gameObject.SetActive(false);
+            DustPool.Instance.ReturnToPool(other.gameObject);
             gameManager.game.level.underObjectsDustCount++;
         }
     }

@@ -31,10 +31,19 @@ public class Vacuum : MonoBehaviour
         {
             if (other.gameObject.tag == "Dust")
             {
+                if (Random.Range(0, 99) < 10)
+                    CreateVFX(other.gameObject.transform.position);
                 other.gameObject.GetComponent<Dust>().MoveToVacuum(vacuumPoint);
                 gameManager.game.level.CleanedDustCount++;
+
             }
         }
     }
 
+    private void CreateVFX(Vector3 pos)
+    {
+        GameObject newVFX = CleanVFXPool.Instance.Get();
+        newVFX.transform.position = new Vector3(pos.x, pos.y + 0.5f, pos.z);
+        newVFX.SetActive(true);
+    }
 }

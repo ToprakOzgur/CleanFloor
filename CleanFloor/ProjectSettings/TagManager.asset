@@ -10,6 +10,7 @@ TagManager:
   - WallUp
   - WallLeft
   - GM
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - VacuumCol
   - Dust
   - ObjectDustCleaner
-  - 
+  - UIHealtBar
   - 
   - 
   - 
@@ -44,6 +45,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: HealtBAr
+    uniqueID: 3951378089
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

@@ -17,7 +17,7 @@ public class RoomGenerator : MonoBehaviour
 
     public Texture[] flootRextures;
     public WallTextures[] wallTextures;
-    public GameObject dust = null;
+
 
     public RoomType roomType;
     [SerializeField] private GameManager gameManager;
@@ -66,10 +66,13 @@ public class RoomGenerator : MonoBehaviour
             foreach (Vector2 point in points)
             {
                 Vector3 pos = new Vector3(point.x - roomSize.width * 5 + wallEdgesSpace / 2, 0, point.y - roomSize.length * 5 + wallEdgesSpace / 2);
-                var newDust = GameObject.Instantiate(dust, pos, Quaternion.identity);
+                var newDust = DustPool.Instance.Get();
+                newDust.transform.position = pos;
+                newDust.SetActive(true);
                 newDust.transform.SetParent(this.gameObject.transform);
                 gameManager.game.level.dustCount++;
             }
+
         }
     }
     public void DestroyRoom()

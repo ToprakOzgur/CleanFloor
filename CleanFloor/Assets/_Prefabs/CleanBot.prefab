@@ -7,7 +7,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493366598315623481}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 108bdb1d37f3248a196910314f53fbc9, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 22
+  firstSpeed: 0
   rotator: {fileID: 9214320057177124265}
   gameManager: {fileID: 0}
 --- !u!114 &9214320057177124265

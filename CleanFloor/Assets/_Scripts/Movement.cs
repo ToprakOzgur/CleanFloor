@@ -6,32 +6,49 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private Rigidbody myRigidbody;
-    public int Speed = 22;
-    private int firstSpeed = 0;
+    private int speed = 18;
+    [HideInInspector] public int firstSpeed = 0;
 
     private Vector3 forwardVector = Vector3.zero;
 
     public Rotator rotator;
 
     public GameManager gameManager;
+    private bool isTouching = false;
+
+    public int Speed
+    {
+        get
+        {
+            return speed;
+        }
+        set
+        {
+            speed = value;
+
+            myRigidbody.velocity = Vector3.zero;
+            myRigidbody.velocity = forwardVector * Speed;
+
+
+
+        }
+    }
+
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
         firstSpeed = Speed;
     }
-
-
-    private void FixedUpdate()
+    public float EaseInQuad(float start, float end, float value)
     {
-        myRigidbody.velocity = Vector3.zero;
-        // transform.position += forwardVector * Time.deltaTime * Speed;
-        myRigidbody.MovePosition(myRigidbody.position + forwardVector * Time.deltaTime * Speed);
+        end -= start;
+        return end * value * value + start;
     }
 
     public void ChangeDirection(BotDirection botDirection)
     {
         forwardVector = Helper.BotDirectionToforwardVector(botDirection);
-
+        myRigidbody.velocity = forwardVector * Speed;
     }
     public void ChangeDirection(Vector2 botDirection)
     {
@@ -39,25 +56,30 @@ public class Movement : MonoBehaviour
         forwardVector = new Vector3(normalizedVector.x, 0, normalizedVector.y);
 
     }
-
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("WallLeft") || other.gameObject.CompareTag("WallUp") || other.gameObject.CompareTag("Door") || other.gameObject.CompareTag("Floor"))
+        {
+            return;
+        }
+        isTouching = true;
+        Speed = firstSpeed / 2;
+        rotator.rotationSpeed = rotator.firstRotationSpeed / 2;
+    }
     private void OnCollisionStay(Collision other)
     {
 
-
-        if (other.gameObject.CompareTag("WallLeft") || other.gameObject.CompareTag("WallUp"))
-        {
-
-            // Debug.Log(transform.forward);
-            // Speed = 3 * firstSpeed / 4;
-            // rotator.rotationSpeed = 3 * rotator.firstRotationSpeed / 4;
-            return;
-        }
-        gameManager.game.level.TouchTime += Time.deltaTime;
-        Speed = firstSpeed / 4;
-        rotator.rotationSpeed = rotator.firstRotationSpeed / 4;
+        if (isTouching)
+            gameManager.game.level.TouchTime += Time.deltaTime;
     }
     private void OnCollisionExit(Collision other)
     {
+        if (other.gameObject.CompareTag("WallLeft") || other.gameObject.CompareTag("WallUp") || other.gameObject.CompareTag("Door") || other.gameObject.CompareTag("Floor"))
+        {
+            return;
+        }
+
+        isTouching = false;
         rotator.rotationSpeed = rotator.firstRotationSpeed;
         Speed = firstSpeed;
     }

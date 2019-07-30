@@ -26,8 +26,6 @@ public class Dust : MonoBehaviour
         botTransform = bot;
         MoveToBot = Move();
         StartCoroutine(MoveToBot);
-        // complete = deactiveGO;
-        //LeanTween.move(gameObject, transform.position, 0.5f).setEase(LeanTweenType.easeInExpo).setOnComplete(complete);
 
 
     }

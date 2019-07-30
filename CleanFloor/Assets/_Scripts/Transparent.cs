@@ -16,17 +16,16 @@ public class Transparent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
+        if (other.gameObject.tag != "Robot")
+            return;
         myRenderer.material = transparentMaterial;
     }
     private void OnTriggerExit(Collider other)
     {
-
+        if (other.gameObject.tag != "Robot")
+            return;
         myRenderer.material = normalMaterial;
     }
 
-    public void BecomeTransparent()
-    {
-        throw new System.NotImplementedException();
-    }
+
 }

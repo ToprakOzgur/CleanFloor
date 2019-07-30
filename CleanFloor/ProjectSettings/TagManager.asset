@@ -11,6 +11,7 @@ TagManager:
   - WallLeft
   - GM
   - Door
+  - Robot
   layers:
   - Default
   - TransparentFX

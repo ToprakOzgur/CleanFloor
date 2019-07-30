@@ -119,21 +119,21 @@ public class TEST : MonoBehaviour
 
     public void easy()
     {
-        GameManager.MaxRobotHealth = 15;
+        GameManager.MaxRobotHealth = 45;
         //  GameManager.FindObjectOfType<UIManager>().touchTimer.text = "15";
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
     public void medium()
     {
-        GameManager.MaxRobotHealth = 10;
+        GameManager.MaxRobotHealth = 30;
         //  GameManager.FindObjectOfType<UIManager>().touchTimer.text = "10";
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
     }
     public void hard()
     {
-        GameManager.MaxRobotHealth = 5;
+        GameManager.MaxRobotHealth = 20;
         //GameManager.FindObjectOfType<UIManager>().touchTimer.text = "5";
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

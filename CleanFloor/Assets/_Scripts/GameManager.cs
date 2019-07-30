@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector] public Game game;
 
-    public static int MaxRobotHealth = 15;
+    public static int MaxRobotHealth = 45;
     private void Awake()
     {
         game = new Game();

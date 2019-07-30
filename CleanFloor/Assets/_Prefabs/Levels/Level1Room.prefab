@@ -33,6 +33,7 @@ Transform:
   - {fileID: 996455338}
   - {fileID: 1876909395}
   - {fileID: 75126270}
+  - {fileID: 1432465225272692429}
   m_Father: {fileID: 8373476159626026374}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64,7 +65,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1427988766870840892}
+  - {fileID: 8373476158073774219}
   - {fileID: 1944683202593329307}
   - {fileID: 1944683202818095363}
   - {fileID: 1944683202787531686}
@@ -94,9 +95,84 @@ MonoBehaviour:
   wallRight: {fileID: 1944683202787531686}
   wallUp: {fileID: 1944683202593329307}
   wallDown: {fileID: 1944683202818095363}
-  floor: {fileID: 1427988766870840892}
+  floor: {fileID: 8373476158073774219}
   width: 6
   lenght: 5
+--- !u!1001 &189653123
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1758327569}
+    m_Modifications:
+    - target: {fileID: 1432465225150427758, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_Name
+      value: OfficeChair
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5dffc269e63a24374af5972baea1f164, type: 3}
+--- !u!4 &1432465225272692429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1432465225150852686, guid: 5dffc269e63a24374af5972baea1f164,
+    type: 3}
+  m_PrefabInstance: {fileID: 189653123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1247378994428417810
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -921,7 +997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f38176419da574978bbf89f6d33e9a57, type: 3}
---- !u!4 &1427988766870840892 stripped
+--- !u!4 &8373476158073774219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7486579089720280613, guid: f38176419da574978bbf89f6d33e9a57,
     type: 3}

@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
 
     public GameManager gameManager;
     private bool isTouching = false;
+    [HideInInspector] public bool isDemagePowerUpActive = false;
+    [HideInInspector] public bool isSpeedPowerUpActive = false;
 
     public int Speed
     {
@@ -63,13 +65,15 @@ public class Movement : MonoBehaviour
             return;
         }
         isTouching = true;
-        Speed = firstSpeed / 2;
+
+        if (!isSpeedPowerUpActive)
+            Speed = firstSpeed / 2;
         rotator.rotationSpeed = rotator.firstRotationSpeed / 2;
     }
     private void OnCollisionStay(Collision other)
     {
 
-        if (isTouching)
+        if (isTouching && !isDemagePowerUpActive)
             gameManager.game.level.TouchTime += Time.deltaTime;
     }
     private void OnCollisionExit(Collision other)
@@ -81,7 +85,8 @@ public class Movement : MonoBehaviour
 
         isTouching = false;
         rotator.rotationSpeed = rotator.firstRotationSpeed;
-        Speed = firstSpeed;
+        if (!isSpeedPowerUpActive)
+            Speed = firstSpeed;
     }
 
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TEST : MonoBehaviour
 {
-
+    public GameObject[] powerups;
     public Text speedText;
     public Text zDistanceText;
     public Text yDistanceText;
@@ -24,6 +24,7 @@ public class TEST : MonoBehaviour
 
         Level.OnDemagedEvent += Demaged;
         speedText.text = movement.Speed.ToString();
+        PowerUp.OnPowerUpCollected += PowerUpCaptured;
 
     }
     public void RestartScreen()
@@ -144,5 +145,24 @@ public class TEST : MonoBehaviour
             RestartScreen();
         }
 
+    }
+
+    public void PowerUpCaptured(PoweUpType poweUpType)
+    {
+        switch (poweUpType)
+        {
+            case PoweUpType.speed:
+                powerups[1].SetActive(false);
+                powerups[2].SetActive(false);
+                break;
+            case PoweUpType.power:
+                powerups[0].SetActive(false);
+                powerups[2].SetActive(false);
+                break;
+            case PoweUpType.demage:
+                powerups[0].SetActive(false);
+                powerups[1].SetActive(false);
+                break;
+        }
     }
 }

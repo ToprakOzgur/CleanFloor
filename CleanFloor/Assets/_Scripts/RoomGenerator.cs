@@ -19,7 +19,7 @@ public class RoomGenerator : MonoBehaviour
     public WallTextures[] wallTextures;
 
 
-    public RoomType roomType;
+
     [SerializeField] private GameManager gameManager;
 
     private void Awake()

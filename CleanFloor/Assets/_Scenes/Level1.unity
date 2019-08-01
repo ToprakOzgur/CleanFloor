@@ -2242,7 +2242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressText: {fileID: 751625241}
-  roomRoot: {fileID: 7757125634297266465, guid: e8ef52f0a484f694a82e05cea8de1ed4,
+  roomRoot: {fileID: 9181401273593289211, guid: 54926f6b6627fc746ba2f13c972b88cf,
     type: 3}
   roomHeight: 4
   floor: {fileID: 1603199716710544540, guid: f38176419da574978bbf89f6d33e9a57, type: 3}

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Transparent : MonoBehaviour
 {
-
+    public TransparentChild[] transparentChild;
     public Material normalMaterial;
     public Material transparentMaterial;
-    // Start is called before the first frame update
+
     private Renderer myRenderer;
     private void Start()
     {
@@ -19,13 +19,24 @@ public class Transparent : MonoBehaviour
         if (other.gameObject.tag != "Robot")
             return;
         myRenderer.material = transparentMaterial;
+        foreach (var item in transparentChild)
+        {
+            item.GetComponent<Renderer>().material = item.transparentMaterial;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag != "Robot")
             return;
         myRenderer.material = normalMaterial;
+
+        foreach (var item in transparentChild)
+        {
+            item.GetComponent<Renderer>().material = item.normalMaterial;
+        }
     }
 
 
 }
+
+

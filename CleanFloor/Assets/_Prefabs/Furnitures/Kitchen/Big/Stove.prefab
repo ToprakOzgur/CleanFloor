@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1902444331003992288}
   - component: {fileID: 1902444331002993184}
   - component: {fileID: 1902444331000726753}
-  - component: {fileID: 8457100143652176516}
   - component: {fileID: 5588490679553471710}
+  - component: {fileID: 7459109367247648562}
   m_Layer: 0
   m_Name: Stove
   m_TagString: Untagged
@@ -94,20 +94,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0236299, y: 0.95522565, z: 1.29015}
   m_Center: {x: 0.008863402, y: 0.085213475, z: 0.6450753}
---- !u!114 &8457100143652176516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902444331000726752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 124f52ff1d47441dc8255c57abdb0b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalMaterial: {fileID: 2100000, guid: 328c45ffc09a24c47bd3b1f3275fb8b8, type: 2}
-  transparentMaterial: {fileID: 2100000, guid: 006605dc8f5004e3abd4b8cfdc8b0bb4, type: 2}
 --- !u!65 &5588490679553471710
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -121,6 +107,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1088436, y: 1.1256528, z: 1.8379506}
   m_Center: {x: -0.009396762, y: 0, z: 0.9189753}
+--- !u!114 &7459109367247648562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902444331000726752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124f52ff1d47441dc8255c57abdb0b0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transparentChild: []
+  normalMaterial: {fileID: 2100000, guid: 328c45ffc09a24c47bd3b1f3275fb8b8, type: 2}
+  transparentMaterial: {fileID: 2100000, guid: 006605dc8f5004e3abd4b8cfdc8b0bb4, type: 2}
 --- !u!1001 &2160229503842056813
 PrefabInstance:
   m_ObjectHideFlags: 0

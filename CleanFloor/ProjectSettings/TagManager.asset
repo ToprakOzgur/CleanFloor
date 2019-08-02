@@ -12,6 +12,7 @@ TagManager:
   - GM
   - Door
   - Robot
+  - ObstaclePos
   layers:
   - Default
   - TransparentFX

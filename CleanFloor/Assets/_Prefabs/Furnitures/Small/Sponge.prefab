@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 750115685762497313}
   - component: {fileID: 750115685542364804}
   - component: {fileID: 750115685542364807}
+  - component: {fileID: -6336059527202556210}
   m_Layer: 0
   m_Name: Sponge
   m_TagString: Untagged
@@ -108,3 +109,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.30862045, y: 0.49561942, z: 0.1630403}
   m_Center: {x: 0.000000007450581, y: 0, z: 0.08152015}
+--- !u!114 &-6336059527202556210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750115685764680033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eacd6cd7666d42f3ada33c550a2e930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomType: 01000000

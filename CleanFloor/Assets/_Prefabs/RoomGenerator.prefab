@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1928588093942131255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1928588093942131254}
+  - component: {fileID: 1928588093942131249}
+  m_Layer: 0
+  m_Name: RoomGenerator
+  m_TagString: RoomGenerator
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1928588093942131254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928588093942131255}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1928588093942131249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928588093942131255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a354e305d534e7d975cd75205d3d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressText: {fileID: 0}
+  roomRoot: {fileID: 6556542321171903507, guid: ad304bd59f31e1943a1f1bc8a6d755c3,
+    type: 3}
+  roomHeight: 4
+  floor: {fileID: 1603199716710544540, guid: f38176419da574978bbf89f6d33e9a57, type: 3}
+  wallLeftRightMaterial: {fileID: 2100000, guid: 0c310096a657c45cd9700187cd29a245,
+    type: 2}
+  wallUpDownMaterial: {fileID: 2100000, guid: 9adfb8d9c899a40efb5644071da1b54e, type: 2}
+  flootRextures:
+  - {fileID: 2800000, guid: 0ef44b3df105f44a7a44ab17a03c0651, type: 3}
+  - {fileID: 2800000, guid: 3220312d44ce549b996b013cb257da9c, type: 3}
+  - {fileID: 2800000, guid: 000d1bfebde504569915732ad376f943, type: 3}
+  - {fileID: 2800000, guid: 5e8685aa9e1ba49f29b7d9ca8f4d4bc2, type: 3}
+  - {fileID: 2800000, guid: 69e4663335706408694af1ce136fea81, type: 3}
+  - {fileID: 2800000, guid: ed50e529726924c78b20462df5a083dc, type: 3}
+  wallTextures:
+  - upDown: {fileID: 2800000, guid: 7ba4abbf21cea4bae820e81cfa12420a, type: 3}
+    rightLeft: {fileID: 2800000, guid: 12206c43f7f894aceb66aff0d0c97cd7, type: 3}
+  - upDown: {fileID: 2800000, guid: d3b0bbde06e98415e9a79655b2b261f9, type: 3}
+    rightLeft: {fileID: 2800000, guid: 5d494c0a35cf24bea92e4bf021c6835f, type: 3}
+  - upDown: {fileID: 2800000, guid: be13c0c3caee44a21bdd1784822fb6ef, type: 3}
+    rightLeft: {fileID: 2800000, guid: c0bacd68f40464d74996064fed8ccaf4, type: 3}
+  - upDown: {fileID: 2800000, guid: 8579aa1bdddc0424fb4860296a9206f3, type: 3}
+    rightLeft: {fileID: 2800000, guid: 1fc167a080a964cc9ae5ef633daaf92b, type: 3}
+  - upDown: {fileID: 2800000, guid: fad833c8603504d12bd304654d29a449, type: 3}
+    rightLeft: {fileID: 2800000, guid: e50e9309cc2264606bbfa25bf925fb53, type: 3}
+  - upDown: {fileID: 2800000, guid: b3a43b574cc8e4eb9bf9a6ca05b7546e, type: 3}
+    rightLeft: {fileID: 2800000, guid: 3289ed18736d143a0a1b4b2224aead02, type: 3}
+  gameManager: {fileID: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8297160138653222230}
   - component: {fileID: 1301203045269702944}
   - component: {fileID: 3683500326708020911}
+  - component: {fileID: -3972587023336911939}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Untagged
@@ -109,3 +110,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: fb21aafb15f6f8b42942e6582af07404, type: 3}
+--- !u!114 &-3972587023336911939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8297160138651229078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eacd6cd7666d42f3ada33c550a2e930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomType: 00000000

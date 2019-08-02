@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6380799850862178076}
   - component: {fileID: 6380799849938131901}
   - component: {fileID: 6380799849938131898}
+  - component: {fileID: -3441230872999368441}
   m_Layer: 0
   m_Name: Gramophone
   m_TagString: Untagged
@@ -108,3 +109,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6227677, y: 0.6332076, z: 0.47233164}
   m_Center: {x: -0.007884204, y: -0.014005005, z: 0.23616576}
+--- !u!114 &-3441230872999368441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6380799850864439772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eacd6cd7666d42f3ada33c550a2e930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomType: 04000000

@@ -18,6 +18,7 @@ public class RoomGenerator : MonoBehaviour
     public Texture[] flootRextures;
     public WallTextures[] wallTextures;
 
+    [SerializeField] private ObstacleManager obstacleManager;
 
 
     [SerializeField] private GameManager gameManager;
@@ -37,6 +38,7 @@ public class RoomGenerator : MonoBehaviour
     {
         CreateRoomColor();
         CreateDust();
+        CreateObstacles();
     }
     public void CreateRoomColor()
     {
@@ -74,6 +76,11 @@ public class RoomGenerator : MonoBehaviour
             }
 
         }
+    }
+
+    public void CreateObstacles()
+    {
+        obstacleManager.CreateObstacles();
     }
     public void DestroyRoom()
     {

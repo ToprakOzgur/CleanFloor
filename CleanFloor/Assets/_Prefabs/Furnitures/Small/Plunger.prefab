@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8842617735638443133}
   - component: {fileID: 8842617735638443135}
   - component: {fileID: 8842617735638443134}
+  - component: {fileID: -1381957148322638475}
   m_Layer: 0
   m_Name: Plunger
   m_TagString: Untagged
@@ -122,3 +123,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11449476, y: 0.10100128, z: 0.55497074}
   m_Center: {x: -0.001139623, y: 0.010128755, z: 0.4668233}
+--- !u!114 &-1381957148322638475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8842617733637828964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eacd6cd7666d42f3ada33c550a2e930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomType: 01000000

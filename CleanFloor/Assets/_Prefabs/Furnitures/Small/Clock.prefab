@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7791987015507049055}
   - component: {fileID: 7791987016760787188}
   - component: {fileID: 7791987016760787191}
+  - component: {fileID: 6398838956524250631}
   m_Layer: 0
   m_Name: Clock
   m_TagString: Untagged
@@ -108,3 +109,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.52456164, y: 0.30449402, z: 0.67859495}
   m_Center: {x: 0, y: 0, z: 0.33899933}
+--- !u!114 &6398838956524250631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7791987015509238943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eacd6cd7666d42f3ada33c550a2e930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomType: 00000000

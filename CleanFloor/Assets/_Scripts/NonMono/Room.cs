@@ -5,9 +5,13 @@ using UnityEngine;
 
 public enum RoomType
 {
+    Common,
     Kitchen,
+    Toilet,
     Office,
-    Bathroom,
+    Living,
+    BedMale,
+    BedFemale
 }
 public class Room
 {

@@ -8,7 +8,7 @@ public class RoomGenerator : MonoBehaviour
     public Text progressText;
 
     [HideInInspector] public RoomSize roomSize;
-    public GameObject roomRoot;
+    public GameObject[] roomRoot;
 
     public float roomHeight;
     public GameObject floor;
@@ -26,7 +26,7 @@ public class RoomGenerator : MonoBehaviour
     private void Awake()
     {
 
-        GameObject.Instantiate(roomRoot, Vector3.zero, Quaternion.identity);
+        GameObject.Instantiate(roomRoot[RandomNumberGenerator.seed - 1], Vector3.zero, Quaternion.identity);
         GetRoomSizes();
     }
     private void GetRoomSizes()
@@ -80,11 +80,11 @@ public class RoomGenerator : MonoBehaviour
 
     public void CreateObstacles()
     {
-        obstacleManager.CreateObstacles();
+        obstacleManager.CreateObstacles(RoomType.Kitchen);
     }
     public void DestroyRoom()
     {
-        Destroy(roomRoot);
+        // Destroy(roomRoot);
     }
 
     [System.Serializable]

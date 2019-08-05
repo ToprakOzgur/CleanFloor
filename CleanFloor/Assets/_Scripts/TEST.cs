@@ -27,6 +27,11 @@ public class TEST : MonoBehaviour
     }
     public void RestartScreen()
     {
+        RandomNumberGenerator.seed++;
+        if (RandomNumberGenerator.seed > 12)
+        {
+            RandomNumberGenerator.seed = 1;
+        }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Debug.Log("restart");

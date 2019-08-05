@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2174563706476141463}
   - component: {fileID: 4989691767313640068}
   - component: {fileID: 8671804620645083197}
+  - component: {fileID: -5880156160142367314}
   m_Layer: 0
   m_Name: TelephoneYellow
   m_TagString: Untagged
@@ -108,3 +109,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.47856623, y: 0.5652611, z: 0.34976614}
   m_Center: {x: 0.012720388, y: 0.03280718, z: 0.17488296}
+--- !u!114 &-5880156160142367314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2174563706473874775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eacd6cd7666d42f3ada33c550a2e930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomType: 03000000

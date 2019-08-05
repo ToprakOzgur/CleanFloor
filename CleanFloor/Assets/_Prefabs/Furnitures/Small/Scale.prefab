@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7977194371761847295}
   - component: {fileID: 7977194373239930755}
   - component: {fileID: 7977194373239930752}
+  - component: {fileID: -3649291203540214142}
   m_Layer: 0
   m_Name: Scale
   m_TagString: Untagged
@@ -108,3 +109,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.61850595, y: 0.64002264, z: 0.14077625}
   m_Center: {x: -0.0045599225, y: -0.022799253, z: 0.07038805}
+--- !u!114 &-3649291203540214142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7977194371764103487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eacd6cd7666d42f3ada33c550a2e930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomType: 02000000

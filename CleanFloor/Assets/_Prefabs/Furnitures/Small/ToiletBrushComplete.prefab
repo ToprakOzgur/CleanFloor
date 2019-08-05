@@ -1,37 +1,88 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4759639538066758822
+--- !u!1 &4759639537980915479
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 192028, guid: 91bb706b9f2b9c64a8365092761e1686,
+    type: 3}
+  m_PrefabInstance: {fileID: 4759639537981018379}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4759639538066758821}
+  - component: {fileID: 4759639537981116663}
+  - component: {fileID: 4759639537983984407}
+  - component: {fileID: 4759639537983368919}
+  - component: {fileID: 4759639538098569459}
+  - component: {fileID: 4759639538098569458}
   m_Layer: 0
-  m_Name: ToiletBrushComplete
+  m_Name: ToiletBrushHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4759639538066758821
+--- !u!4 &4759639537981116663
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 492028, guid: 91bb706b9f2b9c64a8365092761e1686,
+    type: 3}
+  m_PrefabInstance: {fileID: 4759639537981018379}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4759639538066758822}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4759639538724954774}
-  - {fileID: 4759639537981116663}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_GameObject: {fileID: 4759639537980915479}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 4759639538066758821}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4759639537983984407
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3392028, guid: 91bb706b9f2b9c64a8365092761e1686,
+    type: 3}
+  m_PrefabInstance: {fileID: 4759639537981018379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759639537980915479}
+  m_Mesh: {fileID: 4300000, guid: 462383cba24eb564689b37a662f435bb, type: 3}
+--- !u!23 &4759639537983368919
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2392028, guid: 91bb706b9f2b9c64a8365092761e1686,
+    type: 3}
+  m_PrefabInstance: {fileID: 4759639537981018379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759639537980915479}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7e59e70a0a8edcf45a8ba5584444825e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!54 &4759639538098569459
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -61,6 +112,136 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.32760543, y: 0.32760552, z: 0.21098883}
   m_Center: {x: 0, y: 0, z: 0.10595212}
+--- !u!1 &4759639538066758822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4759639538066758821}
+  - component: {fileID: 6626241810330066819}
+  m_Layer: 0
+  m_Name: ToiletBrushComplete
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4759639538066758821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759639538066758822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4759639538724954774}
+  - {fileID: 4759639537981116663}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6626241810330066819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759639538066758822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eacd6cd7666d42f3ada33c550a2e930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomType: 02000000
+--- !u!1 &4759639538725260982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 163172, guid: 7cb1aaa7044b77747937f0068065148f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4759639538725155794}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4759639538724954774}
+  - component: {fileID: 4759639538726249142}
+  - component: {fileID: 4759639538726993142}
+  - component: {fileID: 4759639538390211794}
+  - component: {fileID: 4759639538390211790}
+  - component: {fileID: 4759639538390211793}
+  m_Layer: 0
+  m_Name: ToiletBrush
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4759639538724954774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 463172, guid: 7cb1aaa7044b77747937f0068065148f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4759639538725155794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759639538725260982}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0.12, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 4759639538066758821}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4759639538726249142
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 3363172, guid: 7cb1aaa7044b77747937f0068065148f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4759639538725155794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759639538725260982}
+  m_Mesh: {fileID: 4300000, guid: a5a0a424355aaea409122845c8695d95, type: 3}
+--- !u!23 &4759639538726993142
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 2363172, guid: 7cb1aaa7044b77747937f0068065148f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4759639538725155794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759639538725260982}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7e59e70a0a8edcf45a8ba5584444825e, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!54 &4759639538390211794
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,19 +258,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &4759639538390211793
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4759639538725260982}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.19803129, y: 0.22741766, z: 0.08188549}
-  m_Center: {x: -0.0015319288, y: 0.0055294875, z: 0.24158545}
 --- !u!65 &4759639538390211790
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -103,6 +271,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.085299425, y: 0.07847075, z: 0.582278}
   m_Center: {x: -0.015364453, y: 0.0051215473, z: 0.57851577}
+--- !u!65 &4759639538390211793
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759639538725260982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19803129, y: 0.22741766, z: 0.08188549}
+  m_Center: {x: -0.0015319288, y: 0.0055294875, z: 0.24158545}
 --- !u!1001 &4759639537981018379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -110,10 +291,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4759639538066758821}
     m_Modifications:
-    - target: {fileID: 192028, guid: 91bb706b9f2b9c64a8365092761e1686, type: 3}
-      propertyPath: m_Name
-      value: ToiletBrushHolder
-      objectReference: {fileID: 0}
     - target: {fileID: 492028, guid: 91bb706b9f2b9c64a8365092761e1686, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -170,6 +347,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 192028, guid: 91bb706b9f2b9c64a8365092761e1686, type: 3}
+      propertyPath: m_Name
+      value: ToiletBrushHolder
+      objectReference: {fileID: 0}
     - target: {fileID: 2392028, guid: 91bb706b9f2b9c64a8365092761e1686, type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
@@ -180,18 +361,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91bb706b9f2b9c64a8365092761e1686, type: 3}
---- !u!1 &4759639537980915479 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 192028, guid: 91bb706b9f2b9c64a8365092761e1686,
-    type: 3}
-  m_PrefabInstance: {fileID: 4759639537981018379}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4759639537981116663 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 492028, guid: 91bb706b9f2b9c64a8365092761e1686,
-    type: 3}
-  m_PrefabInstance: {fileID: 4759639537981018379}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4759639538725155794
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,10 +368,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4759639538066758821}
     m_Modifications:
-    - target: {fileID: 163172, guid: 7cb1aaa7044b77747937f0068065148f, type: 3}
-      propertyPath: m_Name
-      value: ToiletBrush
-      objectReference: {fileID: 0}
     - target: {fileID: 463172, guid: 7cb1aaa7044b77747937f0068065148f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -259,6 +424,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 163172, guid: 7cb1aaa7044b77747937f0068065148f, type: 3}
+      propertyPath: m_Name
+      value: ToiletBrush
+      objectReference: {fileID: 0}
     - target: {fileID: 2363172, guid: 7cb1aaa7044b77747937f0068065148f, type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
@@ -269,15 +438,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7cb1aaa7044b77747937f0068065148f, type: 3}
---- !u!1 &4759639538725260982 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 163172, guid: 7cb1aaa7044b77747937f0068065148f,
-    type: 3}
-  m_PrefabInstance: {fileID: 4759639538725155794}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4759639538724954774 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 463172, guid: 7cb1aaa7044b77747937f0068065148f,
-    type: 3}
-  m_PrefabInstance: {fileID: 4759639538725155794}
-  m_PrefabAsset: {fileID: 0}

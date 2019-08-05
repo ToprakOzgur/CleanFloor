@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2910022715207113907}
   - component: {fileID: 2910022715207113932}
   - component: {fileID: 2910022715207113933}
+  - component: {fileID: -1729824988502654161}
   m_Layer: 0
   m_Name: HairDryer
   m_TagString: Untagged
@@ -122,3 +123,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.23345406, y: 0.4439451, z: 0.20717864}
   m_Center: {x: 0.0043417574, y: -4.994262e-16, z: 0.10376959}
+--- !u!114 &-1729824988502654161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910022714905284892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eacd6cd7666d42f3ada33c550a2e930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomType: 0200000006000000

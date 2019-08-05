@@ -10,9 +10,9 @@ public class Game
     public Game()
     {
 
-        int levelNumber = GetLastSavedLevel();
-        RandomNumberGenerator.seed = levelNumber;
-        level = new Level(levelNumber);
+        //int levelNumber = GetLastSavedLevel();
+        //RandomNumberGenerator.seed = levelNumber;
+        level = new Level(RandomNumberGenerator.seed);
     }
     public void GoNextLevel()
     {
@@ -21,6 +21,6 @@ public class Game
     private int GetLastSavedLevel()
     {
         //TODO:get last saved level
-        return 2;
+        return 1;
     }
 }

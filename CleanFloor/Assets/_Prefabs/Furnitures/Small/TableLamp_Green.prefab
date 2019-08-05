@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8093897571882569133}
   - component: {fileID: 8093897571923391454}
   - component: {fileID: 8093897571923391453}
+  - component: {fileID: 4781515024923383075}
   m_Layer: 0
   m_Name: TableLamp_Green
   m_TagString: Untagged
@@ -109,3 +110,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 69e06ff6957d5174787a0999fedcd2ba, type: 3}
+--- !u!114 &4781515024923383075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093897571880637293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eacd6cd7666d42f3ada33c550a2e930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomType: 05000000

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+
+[RequireComponent(typeof(PowerUpManager))]
 public class ObstacleManager : MonoBehaviour
 {
     public int obstacleCount = 4;
@@ -10,8 +12,13 @@ public class ObstacleManager : MonoBehaviour
 
     Queue<Vector3> shuffledPossiblePositions;
     Queue<Obstacle> shuffledObstacles;
+    private PowerUpManager powerUpManager;
 
 
+    private void Awake()
+    {
+        powerUpManager = GetComponent<PowerUpManager>();
+    }
     public void CreateObstacles(RoomType roomType)
     {
         //gets possible object positions from room prefab
@@ -37,15 +44,17 @@ public class ObstacleManager : MonoBehaviour
             var pos = GetRandomPosition();
             obs.gameObject.transform.position = pos;
             obs.gameObject.SetActive(true);
-
         }
+
+
+        powerUpManager.StartSpawnPowerUpLoop(shuffledPossiblePositions);
     }
 
     private Vector3 GetRandomPosition()
     {
         Vector3 randomPos = shuffledPossiblePositions.Dequeue();
 
-        //shuffledPossiblePositions.Enqueue(randomPos);
+        shuffledPossiblePositions.Enqueue(randomPos);
 
         return randomPos;
     }
@@ -55,7 +64,7 @@ public class ObstacleManager : MonoBehaviour
     {
         Obstacle randomObs = shuffledObstacles.Dequeue();
 
-        //shuffledPossiblePositions.Enqueue(randomPos);
+        shuffledObstacles.Enqueue(randomObs);
 
         return randomObs;
     }

@@ -607,7 +607,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6965945848354402836}
-  - {fileID: 2328431882818102905}
+  - {fileID: 5167296120819558146}
   - {fileID: 1395301700529197366}
   - {fileID: 3574131136411769293}
   - {fileID: 7879676652728859466}
@@ -644,7 +644,7 @@ MonoBehaviour:
   wallRight: {fileID: 7879676652728859466}
   wallUp: {fileID: 1395301700529197366}
   wallDown: {fileID: 3574131136411769293}
-  floor: {fileID: 2328431882818102905}
+  floor: {fileID: 5167296120819558146}
   width: 6
   lenght: 5
 --- !u!1 &6965945849305705895
@@ -2201,7 +2201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f38176419da574978bbf89f6d33e9a57, type: 3}
---- !u!4 &2328431882818102905 stripped
+--- !u!4 &5167296120819558146 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7486579089720280613, guid: f38176419da574978bbf89f6d33e9a57,
     type: 3}
@@ -2348,11 +2348,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4832984792967582263, guid: a0e4af0145d8e4194891ab352155f2e1,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10.0000105
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0e4af0145d8e4194891ab352155f2e1, type: 3}

@@ -17,15 +17,33 @@ public class TEST : MonoBehaviour
     public Rotator rotator;
     // Start is called before the first frame update
 
-
     void Start()
     {
-
+        Debug.Log("TEST starterted");
         Level.OnDemagedEvent += Demaged;
         speedText.text = movement.Speed.ToString();
+        //TODO: delete 
+        Level.OnLevelComplated += nextLevel;
 
     }
+
+    private void OnDisable()
+    {
+        Level.OnDemagedEvent -= Demaged;
+        Level.OnLevelComplated -= nextLevel;
+    }
+
+    public void nextLevel()
+    {
+        Invoke("RestartScreen", 2);
+    }
     public void RestartScreen()
+    {
+
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void NextScreen()
     {
         RandomNumberGenerator.seed++;
         if (RandomNumberGenerator.seed > 12)
@@ -34,7 +52,6 @@ public class TEST : MonoBehaviour
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Debug.Log("restart");
     }
 
     public void drag()

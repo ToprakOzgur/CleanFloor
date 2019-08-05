@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level
 {
@@ -34,11 +35,11 @@ public class Level
             if (progress == 100)
             {
                 OnLevelComplated();
+
             }
 
         }
     }
-
 
 
     public float TouchTime

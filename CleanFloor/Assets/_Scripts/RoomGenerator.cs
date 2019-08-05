@@ -19,13 +19,11 @@ public class RoomGenerator : MonoBehaviour
     public WallTextures[] wallTextures;
 
     [SerializeField] private ObstacleManager obstacleManager;
-
-
     [SerializeField] private GameManager gameManager;
 
     private void Awake()
     {
-
+        //TODO: fox hard code
         GameObject.Instantiate(roomRoot[RandomNumberGenerator.seed - 1], Vector3.zero, Quaternion.identity);
         GetRoomSizes();
     }
@@ -36,9 +34,11 @@ public class RoomGenerator : MonoBehaviour
     }
     private void Start()
     {
+
         CreateRoomColor();
         CreateDust();
         CreateObstacles();
+
     }
     public void CreateRoomColor()
     {
@@ -80,7 +80,26 @@ public class RoomGenerator : MonoBehaviour
 
     public void CreateObstacles()
     {
-        obstacleManager.CreateObstacles(RoomType.Kitchen);
+        //TODO:fix this
+        RoomType roomType = RoomType.Common;
+
+        if (RandomNumberGenerator.seed <= 4)
+        {
+            roomType = RoomType.Kitchen;
+        }
+        else if (RandomNumberGenerator.seed <= 8)
+        {
+            roomType = RoomType.Living;
+        }
+        else if (RandomNumberGenerator.seed <= 12)
+        {
+            roomType = RoomType.Office;
+        }
+
+
+
+
+        obstacleManager.CreateObstacles(roomType);
     }
     public void DestroyRoom()
     {

@@ -1,8 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
+[RequireComponent(typeof(Rotator))]
+[RequireComponent(typeof(Robot))]
 public class Movement : MonoBehaviour
 {
     private Rigidbody myRigidbody;
@@ -11,12 +14,13 @@ public class Movement : MonoBehaviour
 
     private Vector3 forwardVector = Vector3.zero;
 
-    public Rotator rotator;
-
-    public GameManager gameManager;
+    private Rotator rotator;
+    private Robot robot;
     private bool isTouching = false;
+    [HideInInspector] public bool isDead = false;
     [HideInInspector] public bool isDemagePowerUpActive = false;
     [HideInInspector] public bool isSpeedPowerUpActive = false;
+    public static event Action<bool> OnTouchObstacleAction = delegate { };
 
     public int Speed
     {
@@ -36,6 +40,60 @@ public class Movement : MonoBehaviour
         }
     }
 
+    public bool IsTouching
+    {
+        get
+        {
+            return isTouching;
+        }
+        set
+        {
+            if (isTouching != value)
+            {
+                OnTouchObstacleAction(value);
+            }
+            isTouching = value;
+
+        }
+    }
+
+    private void Awake()
+    {
+        rotator = gameObject.GetComponent<Rotator>();
+        robot = gameObject.GetComponent<Robot>();
+    }
+    private void OnEnable()
+    {
+        Robot.OnLevelFailed += LevelFailed;
+        Vacuum.OnLevelComplated += LevelCoomplated;
+    }
+
+
+
+    private void OnDisable()
+    {
+        Robot.OnLevelFailed -= LevelFailed;
+        Vacuum.OnLevelComplated -= LevelCoomplated;
+    }
+
+    private void LevelFailed()
+    {
+        isDead = true;
+
+        myRigidbody.isKinematic = true;
+
+    }
+    private void makeKinematic()
+    {
+        myRigidbody.isKinematic = true;
+    }
+    private void LevelCoomplated()
+    {
+        isDead = true;
+
+
+        Invoke("makeKinematic", 0.5f);
+    }
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
@@ -49,22 +107,31 @@ public class Movement : MonoBehaviour
 
     public void ChangeDirection(BotDirection botDirection)
     {
+        if (isDead)
+            return;
         forwardVector = Helper.BotDirectionToforwardVector(botDirection);
         myRigidbody.velocity = forwardVector * Speed;
     }
     public void ChangeDirection(Vector2 botDirection)
     {
+        if (isDead)
+            return;
         var normalizedVector = botDirection.normalized;
         forwardVector = new Vector3(normalizedVector.x, 0, normalizedVector.y);
 
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("WallLeft") || other.gameObject.CompareTag("WallUp") || other.gameObject.CompareTag("Door") || other.gameObject.CompareTag("Floor"))
+
+        if (other.gameObject.CompareTag("WallLeft")
+        || other.gameObject.CompareTag("WallUp")
+        || other.gameObject.CompareTag("Door")
+        || other.gameObject.CompareTag("Floor"))
         {
             return;
         }
-        isTouching = true;
+
+        IsTouching = true;
 
         if (!isSpeedPowerUpActive)
             Speed = firstSpeed / 2;
@@ -73,8 +140,8 @@ public class Movement : MonoBehaviour
     private void OnCollisionStay(Collision other)
     {
 
-        if (isTouching && !isDemagePowerUpActive)
-            gameManager.game.level.TouchTime += Time.deltaTime;
+        if (IsTouching && !isDemagePowerUpActive && !isDead)
+            robot.TouchTime += Time.deltaTime;
     }
     private void OnCollisionExit(Collision other)
     {
@@ -83,7 +150,7 @@ public class Movement : MonoBehaviour
             return;
         }
 
-        isTouching = false;
+        IsTouching = false;
         rotator.rotationSpeed = rotator.firstRotationSpeed;
         if (!isSpeedPowerUpActive)
             Speed = firstSpeed;

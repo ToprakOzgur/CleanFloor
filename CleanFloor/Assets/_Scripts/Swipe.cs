@@ -15,11 +15,11 @@ public enum BotDirection
 }
 public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-
-    public Vacuum vacuum;
     public Movement movement;
     public Rotator rotator;
     private Vector2 lastPosition = Vector2.zero;
+
+    public static event Action OnLevelStarted = delegate { };
 
     [HideInInspector] public BotDirection newBotDirection = BotDirection.Stop;
     private BotDirection lastBotDirection = BotDirection.Stop;
@@ -30,7 +30,7 @@ public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
         if (!isStarted)
         {
             isStarted = true;
-            vacuum.PowerOn = true;
+            OnLevelStarted();
         }
         lastPosition = eventData.position;
 
@@ -49,7 +49,8 @@ public class Swipe : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHan
 
     public void OnDrag(PointerEventData eventData)
     {
-
+        if (movement.isDead)
+            return;
 
 
         Vector2 direction = eventData.position - lastPosition;

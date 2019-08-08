@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class RoomGenerator : MonoBehaviour
 {
-    public Text progressText;
+
 
     [HideInInspector] public RoomSize roomSize;
     public GameObject[] roomRoot;
@@ -19,12 +19,16 @@ public class RoomGenerator : MonoBehaviour
     public WallTextures[] wallTextures;
 
     [SerializeField] private ObstacleManager obstacleManager;
-    [SerializeField] private GameManager gameManager;
+
+
+    [HideInInspector] public GameObject roomName;
+
 
     private void Awake()
     {
         //TODO: fox hard code
-        GameObject.Instantiate(roomRoot[RandomNumberGenerator.seed - 1], Vector3.zero, Quaternion.identity);
+        roomName = GameObject.Instantiate(roomRoot[RandomNumberGenerator.seed - 1], Vector3.zero, Quaternion.identity);
+
         GetRoomSizes();
     }
     private void GetRoomSizes()
@@ -62,6 +66,7 @@ public class RoomGenerator : MonoBehaviour
 
         points = PoissonDiscSampling.GeneratePoints(radius, regionSize, rejectionSamples);
 
+        Vacuum vacuum = GameObject.FindObjectOfType<Vacuum>();
 
         if (points != null)
         {
@@ -72,7 +77,7 @@ public class RoomGenerator : MonoBehaviour
                 newDust.transform.position = pos;
                 newDust.SetActive(true);
                 newDust.transform.SetParent(this.gameObject.transform);
-                gameManager.game.level.dustCount++;
+                vacuum.dustCount++;
             }
 
         }

@@ -21,7 +21,7 @@ public class CleanVFX : MonoBehaviour
 
     private IEnumerator liveTimer()
     {
-        float lifeTime = ps.main.duration;
+        float lifeTime = ps.main.duration * 2;
         yield return new WaitForSeconds(lifeTime);
         CleanVFXPool.Instance.ReturnToPool(this.gameObject);
 

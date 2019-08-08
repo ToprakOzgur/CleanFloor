@@ -17,33 +17,40 @@ public class PowerUpManager : MonoBehaviour
     {
         shuffledPowerUpPrefabs = new Queue<GameObject>(RandomNumberGenerator.ShuffleArray(powerUpPrefabs));
         spawnTime = RandomNumberGenerator.NextRandomInt(1, powerUpSpawnLoop);
-        Debug.Log(spawnTime + " saniye");
+
 
     }
     private void OnEnable()
     {
+        Swipe.OnLevelStarted += StartSpawnLoop;
         PowerUp.OnPowerUpCollected += PowerUpCollected;
     }
     private void OnDisable()
     {
         PowerUp.OnPowerUpCollected -= PowerUpCollected;
+        Swipe.OnLevelStarted -= StartSpawnLoop;
     }
-    public void StartSpawnPowerUpLoop(Queue<Vector3> possiblePositions)
+    public void SetPossibleSpwanPositions(Queue<Vector3> possiblePositions)
     {
         shuffledPossiblePositions = possiblePositions;
-        StartCoroutine(SpawnCounDown(powerUpSpawnLoop));
+
 
     }
 
+
+    public void StartSpawnLoop()
+    {
+        StartCoroutine(SpawnCounDown(powerUpSpawnLoop));
+    }
     private IEnumerator SpawnCounDown(int loopTime)
     {
-        Debug.Log("Started LOOP");
+
         yield return new WaitForSeconds(spawnTime);
         var pos = GetRandomPos();
         //spawn
         var poerUpGo = GameObject.Instantiate(GetRandomPowerUP(), new Vector3(pos.x, 2, pos.z), Quaternion.identity);
         poerUpGo.GetComponent<PowerUp>().Instantieted(powerUpActiveInSceneLifeTime);
-        Debug.Log("Spawnnn");
+
         yield return new WaitForSeconds(loopTime - spawnTime);
 
         if (powerUpCollectCount < maxPossiblePowerUpColloctPerLevel)
@@ -69,7 +76,7 @@ public class PowerUpManager : MonoBehaviour
 
     private void ResetLoop()
     {
-        Debug.Log("ResetLoop");
+
         StopAllCoroutines();
         StartCoroutine(SpawnCounDown(powerUpSpawnLoop));
     }

@@ -7,7 +7,7 @@ using System.Linq;
 [RequireComponent(typeof(PowerUpManager))]
 public class ObstacleManager : MonoBehaviour
 {
-    public int obstacleCount = 4;
+    public static int obstacleCount = 5;
     public Obstacle[] obstacles = new Obstacle[0];
 
     Queue<Vector3> shuffledPossiblePositions;
@@ -47,7 +47,7 @@ public class ObstacleManager : MonoBehaviour
         }
 
 
-        powerUpManager.StartSpawnPowerUpLoop(shuffledPossiblePositions);
+        powerUpManager.SetPossibleSpwanPositions(shuffledPossiblePositions);
     }
 
     private Vector3 GetRandomPosition()

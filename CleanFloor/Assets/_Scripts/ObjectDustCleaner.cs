@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class ObjectDustCleaner : MonoBehaviour
 {
-    [HideInInspector] public RoomGenerator roomGenerator;
-    [HideInInspector] public GameManager gameManager;
+    private Vacuum vacuum;
+
     private void Awake()
     {
-        roomGenerator = GameObject.FindGameObjectWithTag("RoomGenerator").GetComponent<RoomGenerator>();
-        gameManager = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+        vacuum = GameObject.FindObjectOfType<Vacuum>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Dust"))
         {
             DustPool.Instance.ReturnToPool(other.gameObject);
-            gameManager.game.level.underObjectsDustCount++;
+            vacuum.underObjectsDustCount++;
         }
     }
 }

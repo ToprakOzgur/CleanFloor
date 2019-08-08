@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 public class Rotator : MonoBehaviour
 {
+    public static event Action OnChangeRotation = delegate { };
     private BotDirection currentDirection = BotDirection.Stop;
     public int rotationSpeed = 13;
     [HideInInspector] public int firstRotationSpeed = 13;
@@ -19,6 +21,8 @@ public class Rotator : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(newDir);
 
     }
+
+
     public void ChangeDirection(BotDirection botDirection)
     {
         if (currentDirection == botDirection)
@@ -26,7 +30,7 @@ public class Rotator : MonoBehaviour
         currentDirection = botDirection;
 
         targetDir = Helper.BotDirectionToforwardVector(botDirection);
-
+        OnChangeRotation();
     }
     public void ChangeDirection(Vector2 botDirection)
     {

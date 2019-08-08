@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Roomdifficulty
+{
+    easy,
+    medium,
+    Hard
+}
 
 public enum RoomType
 {
@@ -16,6 +22,7 @@ public enum RoomType
 public class Room
 {
     public RoomType roomtype;
+    public Roomdifficulty roomdifficulty;
     public Room(RoomType roomtype)
     {
         this.roomtype = roomtype;

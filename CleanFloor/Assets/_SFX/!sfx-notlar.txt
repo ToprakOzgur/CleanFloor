@@ -1,0 +1,14 @@
+﻿robotun dönüş için 9 tane var onları random verelim en çok onlar duyulacak sıkmasın diye
+win/fail/powerup standart zaten
+obstacle var biraz uzun tuttum robotun fail durumunu kaç saniye yapıcaz bilmediğimiz için, obje'den kurtularsa fade out olabilir
+kurtulamazsa explode sesi, bunu vfx'le beraber patlattığımız an robotu
+bir de door open/close var
+
+level başlamadan ufak bi animasyon düşündüm oraya, şu an ki gibi odanın random bi yerinde değilde
+ekranın alt tarafındaki görünmeyen duvarda olur kapı (assetin için kapı açma/kapama animasyonu olması lazım)
+kapı açılır, robot içeri girer bi %5 falan kendi temizler, sonra şu anki levelların başladığı yerde durur
+swipe to move yazısı, oklar ve logo gelir, kapı kapanır o sırada (bu arada logonun üst kısmındaki clean yazan yerin üstüne de vfx-sparkle düşündüm)
+swipe yaptığında, yazı, oklar, logo fade out olur, oyuna başlar
+level bitincede kapı açılır tekrar robot kendi gider kapıdan dışarı, oda o sırada vfx-sparkle oluyor her yerde level complete falan geliyor
+yeni level geldiğinde de yine aynı şekilde
+sanki bi evi odadan odaya temizliyoruz gibi hissi vermiş oluruz göstermeden

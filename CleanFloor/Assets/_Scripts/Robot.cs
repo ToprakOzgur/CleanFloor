@@ -5,11 +5,47 @@ using UnityEngine;
 
 public class Robot : MonoBehaviour
 {
+    [SerializeField] private GameObject explodePrefab;
     private Movement movement;
     private Vacuum vacuum;
     [SerializeField] private GameObject VFXSpeed;
     [SerializeField] private GameObject VFXPower;
     [SerializeField] private GameObject VFXDemage;
+
+    public static event Action<float> OnDemagedEvent = delegate { };
+    public static event Action OnLevelFailed = delegate { };
+
+    public static int MaxRobotHealth = 45;
+    private bool isDead = false;
+    private float touchTime = 0;
+    public float TouchTime
+    {
+        get
+        {
+            return touchTime;
+        }
+        set
+        {
+            touchTime = value;
+            OnDemagedEvent(touchTime);
+
+            if (!isDead && touchTime / (float)MaxRobotHealth >= 1)
+            {
+
+                OnLevelFailed();
+                SpawnExplodeVFX();
+                isDead = true;
+            }
+
+
+        }
+    }
+
+    private void SpawnExplodeVFX()
+    {
+
+        GameObject.Instantiate(explodePrefab, transform.position, Quaternion.identity, this.transform);
+    }
 
     private void Awake()
     {
@@ -77,4 +113,7 @@ public class Robot : MonoBehaviour
         vacuum.vacuumAreaPoweredUp.SetActive(false);
         VFXPower.SetActive(false);
     }
+
+
+
 }

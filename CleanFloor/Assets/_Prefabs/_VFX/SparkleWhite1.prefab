@@ -4774,7 +4774,7 @@ GameObject:
   - component: {fileID: 5787417188072079699}
   - component: {fileID: -7255488315307466710}
   m_Layer: 0
-  m_Name: SparkleWhite
+  m_Name: SparkleWhite1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

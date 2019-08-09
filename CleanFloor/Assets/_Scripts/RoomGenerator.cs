@@ -26,7 +26,7 @@ public class RoomGenerator : MonoBehaviour
 
     private void Awake()
     {
-        //TODO: fox hard code
+
         roomName = GameObject.Instantiate(roomRoot[RandomNumberGenerator.seed - 1], Vector3.zero, Quaternion.identity);
 
         GetRoomSizes();

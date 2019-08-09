@@ -41,6 +41,7 @@ public class Vacuum : MonoBehaviour
             OnProgressChangedEvent(progress);
             if (progress == 100)
             {
+                GameManager.Instance.NextLevel();
                 OnLevelComplated();
 
             }

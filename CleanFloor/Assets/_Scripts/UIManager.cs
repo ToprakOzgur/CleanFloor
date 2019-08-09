@@ -23,8 +23,6 @@ public class UIManager : MonoBehaviour
 
     private Robot robot;
 
-    //TODO: delete roomGenerator ref
-    [SerializeField] private RoomGenerator roomGenerator;
     private void Awake()
     {
         robot = GameObject.FindObjectOfType<Robot>();
@@ -46,8 +44,6 @@ public class UIManager : MonoBehaviour
         progressSlider.value = 0;
         progressText.text = "%0";
         DemageSlider.value = 0;
-
-        currenlevel.text = roomGenerator.roomName.name.ToString();
 
     }
     private void OnDisable()
@@ -94,7 +90,7 @@ public class UIManager : MonoBehaviour
     public void Demaged(float time)
     {
 
-        DemageSlider.value = (time / (float)Robot.MaxRobotHealth);
+        DemageSlider.value = (time / (float)robot.maxRobotHealth);
 
     }
 

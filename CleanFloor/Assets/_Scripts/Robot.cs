@@ -15,7 +15,7 @@ public class Robot : MonoBehaviour
     public static event Action<float> OnDemagedEvent = delegate { };
     public static event Action OnLevelFailed = delegate { };
 
-    public static int MaxRobotHealth = 45;
+    public int maxRobotHealth = 45;
     private bool isDead = false;
     private float touchTime = 0;
     public float TouchTime
@@ -29,7 +29,7 @@ public class Robot : MonoBehaviour
             touchTime = value;
             OnDemagedEvent(touchTime);
 
-            if (!isDead && touchTime / (float)MaxRobotHealth >= 1)
+            if (!isDead && touchTime / (float)maxRobotHealth >= 1)
             {
 
                 OnLevelFailed();
@@ -95,20 +95,20 @@ public class Robot : MonoBehaviour
     }
     private void resetPowerUpSpeed()
     {
-        Debug.Log("speed ended");
+
         movement.isSpeedPowerUpActive = false;
         VFXSpeed.SetActive(false);
         movement.Speed = movement.firstSpeed;
     }
     private void resetPowerUpDemage()
     {
-        Debug.Log("demage ended");
+
         movement.isDemagePowerUpActive = false;
         VFXDemage.SetActive(false);
     }
     private void resetPowerUpPower()
     {
-        Debug.Log("power ended");
+
         vacuum.vacuumArea.SetActive(true);
         vacuum.vacuumAreaPoweredUp.SetActive(false);
         VFXPower.SetActive(false);

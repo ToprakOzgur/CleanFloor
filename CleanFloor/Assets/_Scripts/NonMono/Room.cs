@@ -59,8 +59,6 @@ public class Room
         obstacleCount = RandomNumberGenerator.NextRandomInt(GetMinRoomObstacleCount(), GetMaxRoomObstacleCount() + 1);
         robotHealth = RandomNumberGenerator.NextRandomInt(GetMinRobotHealth(), GetMaxRobotHealth() + 1);
 
-        Debug.Log("ROOM " + roomtype + " prefab= " + prefabNumber + " " + roomdifficulty + " ObsCount= " + obstacleCount + " Health= " + robotHealth);
-
     }
     private int GetMinRoomObstacleCount()
     {

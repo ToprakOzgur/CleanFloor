@@ -8,6 +8,10 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public Text TESTprefabname;
+    public Text TESTmaxDemage;
+    public Text TESTdifficulty;
+    public Text TESTobsCount;
     public Text currenlevel;
     public Canvas canvas;
     public GameObject startPanel;
@@ -23,6 +27,10 @@ public class UIManager : MonoBehaviour
 
     private Robot robot;
 
+    private int currentRoomNumber;
+    public Image homeroomComplatedImage;
+    public Sprite homeComplated;
+    public Sprite roomComplated;
     private void Awake()
     {
         robot = GameObject.FindObjectOfType<Robot>();
@@ -65,7 +73,14 @@ public class UIManager : MonoBehaviour
 
     private void LevelComplated()
     {
-
+        if (currentRoomNumber == 3)
+        {
+            homeroomComplatedImage.sprite = homeComplated;
+        }
+        else
+        {
+            homeroomComplatedImage.sprite = roomComplated;
+        }
         StartCoroutine(FadeIn(0.5f, winPanel, 1));
     }
     public void NextScreen()
@@ -90,7 +105,7 @@ public class UIManager : MonoBehaviour
     public void Demaged(float time)
     {
 
-        DemageSlider.value = (time / (float)robot.maxRobotHealth);
+        DemageSlider.value = (time / (float)Robot.RobotHealth);
 
     }
 
@@ -203,6 +218,45 @@ public class UIManager : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    public void SetLevelName(Home home, int roomNumber)
+    {
+
+        currentRoomNumber = roomNumber;
+        currenlevel.text = "HOME " + home.homeNumber.ToString() + " ROOM " + roomNumber.ToString();
+    }
+
+    public void SetTestUI(string prefabName, string maxDemage, string diff, RoomType roomType, string obsCount)
+    {
+        string roomName = "??";
+        switch (roomType)
+        {
+            case RoomType.Kitchen:
+                roomName = "KITCHEN";
+                break;
+            case RoomType.Office:
+                roomName = "OFFICE";
+                break;
+            case RoomType.Living:
+                roomName = "LIVINGROOM";
+                break;
+            case RoomType.Toilet:
+                roomName = "BATHROOM";
+                break;
+            case RoomType.BedFemale:
+                roomName = "BEDROOM";
+                break;
+            case RoomType.BedMale:
+                roomName = "BEDROOM";
+                break;
+
+        }
+
+        TESTprefabname.text = roomName + " " + prefabName;
+        TESTmaxDemage.text = "sure= " + maxDemage;
+        TESTdifficulty.text = diff;
+        TESTobsCount.text = "esya= " + obsCount;
     }
 }
 

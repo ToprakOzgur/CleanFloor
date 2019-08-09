@@ -7,7 +7,7 @@ using System.Linq;
 [RequireComponent(typeof(PowerUpManager))]
 public class ObstacleManager : MonoBehaviour
 {
-    public static int obstacleCount = 5;
+    public int obstacleCount = 0;
     public Obstacle[] obstacles = new Obstacle[0];
 
     Queue<Vector3> shuffledPossiblePositions;
@@ -19,8 +19,9 @@ public class ObstacleManager : MonoBehaviour
     {
         powerUpManager = GetComponent<PowerUpManager>();
     }
-    public void CreateObstacles(RoomType roomType)
+    public void CreateObstacles(RoomType roomType, int obsCount)
     {
+        obstacleCount = obsCount;
         //gets possible object positions from room prefab
         var possiblePositions = GetPossibleObstaclePositions();
 

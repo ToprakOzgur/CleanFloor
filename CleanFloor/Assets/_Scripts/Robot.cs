@@ -15,7 +15,7 @@ public class Robot : MonoBehaviour
     public static event Action<float> OnDemagedEvent = delegate { };
     public static event Action OnLevelFailed = delegate { };
 
-    public int maxRobotHealth = 45;
+    public static int RobotHealth = 1;
     private bool isDead = false;
     private float touchTime = 0;
     public float TouchTime
@@ -29,7 +29,7 @@ public class Robot : MonoBehaviour
             touchTime = value;
             OnDemagedEvent(touchTime);
 
-            if (!isDead && touchTime / (float)maxRobotHealth >= 1)
+            if (!isDead && touchTime / (float)RobotHealth >= 1)
             {
 
                 OnLevelFailed();

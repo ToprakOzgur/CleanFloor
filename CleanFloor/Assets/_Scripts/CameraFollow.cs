@@ -5,25 +5,28 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-    public RoomGenerator roomGenerator;
-    private float roomWidth = 10;
-    private float roomLength = 10;
+    public static float roomWidth = 10;
+    public static float roomLength = 10;
     public float smoothSpeed = 0.25f;
     private Vector3 offset;
 
+    public static bool isRoomGenerated = false;
     private void Awake()
     {
         //offset = transform.position;
         offset = transform.position - target.position;
     }
 
-    private void Start()
+    public static void SetRoomSizes(float width, float length)
     {
-        roomWidth = roomGenerator.roomSize.width;
-        roomLength = roomGenerator.roomSize.length;
+        roomWidth = width;
+        roomLength = length;
+        isRoomGenerated = true;
     }
     void FixedUpdate()
     {
+        if (!isRoomGenerated)
+            return;
 
         Vector3 desiredPosition = target.position + offset;
         float clambepDesiredPosX = Mathf.Clamp(desiredPosition.x, -(5 * roomWidth - 10f), 5 * roomWidth - 10f);

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 public class RoomGenerator : MonoBehaviour
@@ -8,8 +9,7 @@ public class RoomGenerator : MonoBehaviour
 
 
     [HideInInspector] public RoomSize roomSize;
-    public GameObject[] roomRoot;
-
+    public RoomPrefabs[] roomPrefabs;
     public float roomHeight;
     public GameObject floor;
     public Material wallLeftRightMaterial;
@@ -23,27 +23,30 @@ public class RoomGenerator : MonoBehaviour
 
     [HideInInspector] public GameObject roomName;
 
-
-    private void Awake()
+    private void Start()
     {
+        GameManager.Instance.CreateLevel();
+    }
 
-        roomName = GameObject.Instantiate(roomRoot[RandomNumberGenerator.seed - 1], Vector3.zero, Quaternion.identity);
+    public void CreateRoom(Room room)
+    {
+        roomName = GameObject.Instantiate(roomPrefabs.First(x => x.roomPrefabType == room.roomtype && x.roomPrefabNumber == room.prefabNumber).roomGameObjectPrefab, Vector3.zero, Quaternion.identity);
 
         GetRoomSizes();
+        CameraFollow.SetRoomSizes(roomSize.width, roomSize.length);
+
+        CreateRoomColor();
+        CreateDust();
+
     }
+
     private void GetRoomSizes()
     {
         roomSize.width = (int)GameObject.FindGameObjectWithTag("WallUp").transform.localScale.x;
         roomSize.length = (int)GameObject.FindGameObjectWithTag("WallLeft").transform.localScale.x;
-    }
-    private void Start()
-    {
-
-        CreateRoomColor();
-        CreateDust();
-        CreateObstacles();
 
     }
+
     public void CreateRoomColor()
     {
         int textureUpDownnumber = RandomNumberGenerator.NextRandomInt(0, wallTextures.Length);
@@ -83,33 +86,7 @@ public class RoomGenerator : MonoBehaviour
         }
     }
 
-    public void CreateObstacles()
-    {
-        //TODO:fix this
-        RoomType roomType = RoomType.Common;
 
-        if (RandomNumberGenerator.seed <= 4)
-        {
-            roomType = RoomType.Kitchen;
-        }
-        else if (RandomNumberGenerator.seed <= 8)
-        {
-            roomType = RoomType.Living;
-        }
-        else if (RandomNumberGenerator.seed <= 12)
-        {
-            roomType = RoomType.Office;
-        }
-
-
-
-
-        obstacleManager.CreateObstacles(roomType);
-    }
-    public void DestroyRoom()
-    {
-        // Destroy(roomRoot);
-    }
 
     [System.Serializable]
     public struct WallTextures
@@ -124,5 +101,14 @@ public class RoomGenerator : MonoBehaviour
         public int length;
     }
 
+
+}
+
+[System.Serializable]
+public struct RoomPrefabs
+{
+    public GameObject roomGameObjectPrefab;
+    public int roomPrefabNumber;
+    public RoomType roomPrefabType;
 
 }

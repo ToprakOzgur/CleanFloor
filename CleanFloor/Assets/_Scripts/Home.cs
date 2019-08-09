@@ -10,7 +10,7 @@ public class Home
     public bool isCleaned = false;
 
     public Room[] rooms;
-    public Room currentRoom;
+
 
     public RoomType[] roomTypes;
 
@@ -111,8 +111,21 @@ public class Home
 
     private int GetRoomTypePrefabNumber(RoomType roomType, int roomNumber)
     {
-        int[] tempArray = { 1, 2, 3, 4 };
-        var shuffledTempArray = RandomNumberGenerator.ShuffleArray(tempArray, 999 - roomNumber);
+        int lastprefab = PlayerPrefs.GetInt(roomType.ToString(), -1);
+
+        //TODO: fix if more than 5 prefab
+        List<int> tempArray = new List<int> { 1, 2, 3, 4 };
+
+        if (lastprefab > 0)
+        {
+            Debug.Log("Removed" + tempArray[lastprefab - 1]);
+            tempArray.Remove(lastprefab - 1);
+
+        }
+
+        var shuffledTempArray = RandomNumberGenerator.ShuffleArray(tempArray.ToArray(), 999 - roomNumber);
+
+
 
         return shuffledTempArray[0];
     }
